@@ -27,11 +27,11 @@ end component;
 
 begin
 
-  -- Instantiate N mux instances.
+
   G_onesComp: for i in 0 to N-1 generate
     ONESCOMPI: invg port map(
-              i_A     => i_A(i),  -- ith instance's data input hooked up to ith data 0 input.
-              o_F      => o_F(i));  -- ith instance's data output hooked up to ith data output.
+              i_A     => i_A(i),  
+              o_F      => o_F(i));  
   end generate G_onesComp;
   
 end structural;

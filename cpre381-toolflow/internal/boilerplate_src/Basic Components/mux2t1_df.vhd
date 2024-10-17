@@ -5,14 +5,7 @@
 
 -- mux2t1.vhd
 -------------------------------------------------------------------------
--- DESCRIPTION: This file contains an implementation of a behavioral 
--- register that delays the input by one clock cycle. 
---
---
--- NOTES: Integer data type is not typically useful when doing hardware
--- design. We use it here for simplicity, but in future labs it will be
--- important to switch to std_logic_vector types and associated math
--- libraries (e.g. signed, unsigned). 
+
 -------------------------------------------------------------------------
 
 library IEEE;
@@ -23,20 +16,20 @@ library std;
 use std.env.all;                -- For hierarchical/external signals
 use std.textio.all; 
 
-entity mux2t1_df_2 is
+entity mux2t1 is
 
   port(i_D0             : in std_logic;
        i_D1               : in std_logic;
-	i_S		:in std_logic;
-       o_O               : out std_logic);
+	iC		:in std_logic;
+       oQ               : out std_logic);
 
-end mux2t1_df_2;
+end mux2t1;
 
-architecture mux2t1_df of mux2t1_df_2 is
+architecture Behavioral of mux2t1 is
 begin
-o_O <= i_D0 when (i_S = '0') else
-	i_D1 when (i_S = '1') else
+oQ <= i_D0 when (iC = '0') else
+	i_D1 when (iC = '1') else
 	'0';
 
 
-end mux2t1_df;
+end mux2t1;

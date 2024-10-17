@@ -16,7 +16,7 @@ entity mux_32 is
 	     o_Q 	: out std_logic_vector(31 downto 0));
 	end mux_32;
 
-architecture mux of mux_32 is
+architecture Behavioral of mux_32 is
 	begin
 		with i_S select
 

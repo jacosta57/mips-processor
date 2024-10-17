@@ -17,7 +17,7 @@ entity decoder_32 is
 		o_Q : out std_logic_vector(31 downto 0));
 	end decoder_32;
 -- architecture
-architecture spec_dec of decoder_32 is
+architecture Behavioral of decoder_32 is
 	begin
 		with i_S select
 		o_Q <=  "00000000000000000000000000000001" when "00000",
