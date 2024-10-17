@@ -1,7 +1,5 @@
 -------------------------------------------------------------------------
 -- Nakota Clark
--- Department of Electrical and Computer Engineering
--- Iowa State University
 -------------------------------------------------------------------------
 
 
@@ -15,9 +13,6 @@
 -- design. We use it here for simplicity, but in future labs it will be
 -- important to switch to std_logic_vector types and associated math
 -- libraries (e.g. signed, unsigned). 
-
-
--- 1/14/18 by H3::Design created.
 -------------------------------------------------------------------------
 
 library IEEE;

@@ -5,12 +5,7 @@
 
 -- n-adder.vhd
 -------------------------------------------------------------------------
--- DESCRIPTION: This file contains an implementation of an N-bit wide 2:1
--- mux using structural VHDL, generics, and generate statements.
---
---
--- NOTES:
--- 1/6/20 by H3::Created.
+
 -------------------------------------------------------------------------
 
 library IEEE;
