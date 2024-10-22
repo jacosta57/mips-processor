@@ -57,4 +57,4 @@ architecture Behavioral of mux_32 is
 	     D31 when others;
 		
 
-	end mux;
+	end Behavioral;
