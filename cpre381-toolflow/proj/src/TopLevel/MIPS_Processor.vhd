@@ -51,10 +51,10 @@ architecture structure of MIPS_Processor is
   signal s_Inst         : std_logic_vector(N-1 downto 0); -- TODO: use this signal as the instruction signal 
 
   -- Required halt signal -- for simulation
-  signal s_Halt         : std_logic;  -- TODO: this signal indicates to the simulation that intended program execution has completed. (Opcode: 01 0100)
+  signal s_Halt         : std_logic;  
 
   -- Required overflow signal -- for overflow exception detection
-  signal s_Ovfl         : std_logic;  -- TODO: this signal indicates an overflow exception would have been initiated
+  signal s_Ovfl         : std_logic;  
 
   component mem is
     generic(ADDR_WIDTH : integer;
@@ -66,9 +66,6 @@ architecture structure of MIPS_Processor is
           we           : in std_logic := '1';
           q            : out std_logic_vector((DATA_WIDTH -1) downto 0));
     end component;
-
-  -- TODO: You may add any additional signals or components your implementation 
-  --       requires below this comment
 
 component reg_file
 	port(iCLK                         : in std_logic;
@@ -107,6 +104,15 @@ component mux2t1_N
 
 end component;
 
+component mux2t1_5 
+  generic(N : integer := 5); -- Generic of type integer for input/output data width. Default value is 32.
+  port(i_S          : in std_logic;
+       i_D0         : in std_logic_vector(N-1 downto 0);
+       i_D1         : in std_logic_vector(N-1 downto 0);
+       o_O          : out std_logic_vector(N-1 downto 0));
+
+end component;
+
 component alu 
 	port (
              i_A         : in std_logic_vector(31 downto 0);
@@ -123,6 +129,7 @@ component alu_control is
 	      i_ALUOp	 :in std_logic_vector(1 downto 0);
 	      i_Funct    :in std_logic_vector(5 downto 0);
 	      o_ALU_Operation : out std_logic_vector(3 downto 0));
+end component;
 
 component shifter
 	port ( i_D : in std_logic_vector(31 downto 0);
@@ -217,6 +224,10 @@ constant s_High : std_logic := '1';
 constant s_Const_Shamt : std_logic_vector(4 downto 0) := "00010";
 constant s_Const_Add_4 : std_logic_vector(31 downto 0) := x"00000004";
 
+
+
+signal muxtemp : std_logic_vector(4 downto 0);
+
 begin
 
   -- TODO: This is required to be your final input to your instruction memory. This provides a feasible method to externally load the memory module which means that the synthesis tool must assume it knows nothing about the values stored in the instruction memory. If this is not included, much, if not all of the design is optimized out because the synthesis tool will believe the memory to be all zeros.
@@ -243,16 +254,15 @@ begin
              we   => s_DMemWr,
              q    => s_DMemOut);
 
-  -- TODO: Ensure that s_Halt is connected to an output control signal produced from decoding the Halt instruction (Opcode: 01 0100)
-  -- TODO: Ensure that s_Ovfl is connected to the overflow output of your ALU
-
   -- TODO: Implement the rest of your processor below this comment! 
+muxtemp <= s_Inst(20 downto 16);
 
-mux_RegDest: mux2t1_N
+mux_RegDest: mux2t1_5
 port map(i_S => s_RegDest,
-       i_D0 => s_Inst(20 downto 16),
+       i_D0 => muxtemp,
        i_D1 => s_Inst(15 downto 11),
        o_O => s_RegWrAddr);
+
 
 regFile: reg_file
 port map(iCLK        => iCLK,                 
@@ -294,20 +304,21 @@ alu_1: alu
         o_Overflow => s_Ovfl
     );
 
-    s_DMemAddr => s_ALU_Result;
+    s_DMemAddr <= s_ALU_Result;
+    oALUOut    <= s_ALU_Result;
 
 fetch_component: fetch_logic
 port map(
-       i_clk => iCLK,
-       i_rst => iRST,
-       i_branch_en => s_Branch_En and s_ALU_Zero,
-       i_jump_en => s_Jump,
-       i_jr_en => s_Jump_Return,
-       i_branch_addr => s_Imm_SignExt,
-       i_jump_addr => s_Inst(25 downto 0),
-       i_jr_addr => s_RegOut1,
-       o_PC => ,
-       o_next_inst_addr => s_NextInstAddr);
+       i_clk 		=> iCLK,
+       i_rst 		=> iRST,
+       i_branch_en 	=> s_Branch_En and s_ALU_Zero,
+       i_jump_en	=> s_Jump,
+       i_jr_en 		=> s_Jump_Return,
+       i_branch_addr 	=> s_Imm_SignExt,
+       i_jump_addr 	=> s_Inst(25 downto 0),
+       i_jr_addr 	=> s_RegOut1,
+       o_PC 		=> s_NextInstAddr,
+       o_next_inst_addr => s_PC_Out);
 
 control_component: control_logic
     port map(

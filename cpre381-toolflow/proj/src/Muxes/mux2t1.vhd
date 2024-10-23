@@ -20,15 +20,15 @@ entity mux2t1 is
 
   port(i_D0             : in std_logic;
        i_D1               : in std_logic;
-	iC		:in std_logic;
-       oQ               : out std_logic);
+	i_S		:in std_logic;
+       o_O               : out std_logic);
 
 end mux2t1;
 
 architecture Behavioral of mux2t1 is
 begin
-oQ <= i_D0 when (iC = '0') else
-	i_D1 when (iC = '1') else
+o_O <= i_D0 when (i_S = '0') else
+	i_D1 when (i_S = '1') else
 	'0';
 
 
