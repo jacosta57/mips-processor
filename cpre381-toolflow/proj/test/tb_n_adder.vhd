@@ -1,77 +1,85 @@
+-------------------------------------------------------------------------
+-- Parnika Dasgupta
+-- Department of Electrical and Computer Engineering
+-- Iowa State University
+-------------------------------------------------------------------------
+
+-- tb_n_adder.vhd
+-------------------------------------------------------------------------
+
 library IEEE;
 use IEEE.std_logic_1164.all;
-use IEEE.std_logic_textio.all;  -- For logic types I/O
-library std;
-use std.env.all;                -- For hierarchical/external signals
-use std.textio.all;             -- For basic I/O
-
 
 entity tb_n_adder is
-  generic(N   : integer := 32);   -- Generic for half of the clock cycle period
 end tb_n_adder;
 
-architecture mixed of tb_n_adder is
+architecture behavior of tb_n_adder is
 
+  -- Generic parameter N for the width of the adder
+  constant N : integer := 32; 
 
+  -- Signal declarations for inputs and outputs
+  signal i_D0 : std_logic_vector(N-1 downto 0) := (others => '0');  -- Input data 0
+  signal i_D1 : std_logic_vector(N-1 downto 0) := (others => '0');  -- Input data 1
+  signal i_C  : std_logic := '0';                                    -- Carry-in signal
+  signal o_S  : std_logic_vector(N-1 downto 0);                      -- Sum output
+  signal o_C  : std_logic;                                           -- Carry-out signal
 
-component n_adder is
-    port(i_C                  : in std_logic;
-         i_D0                 : in std_logic_vector(N-1 downto 0);
-         i_D1                 : in std_logic_vector(N-1 downto 0);
-         o_S                  : out std_logic_vector(N-1 downto 0);
-	 o_C                  : out std_logic);
-
-  end component n_adder;
-
-
--- TODO: change input and output signals as needed.
-signal s_i_D0: std_logic_vector(N-1 downto 0) := x"00000000";
-signal s_i_D1: std_logic_vector(N-1 downto 0) := x"00000000";
-signal s_C_O: std_logic := '0';
-signal s_C_i: std_logic := '0';
-signal s_S: std_logic_vector(N-1 downto 0);
-
+  -- Component Declaration of Unit Under Test (UUT)
+  component n_adder
+    generic(N : integer);
+    port(
+      i_D0 : in std_logic_vector(N-1 downto 0);
+      i_D1 : in std_logic_vector(N-1 downto 0);
+      i_C  : in std_logic;
+      o_C  : out std_logic;
+      o_S  : out std_logic_vector(N-1 downto 0)
+    );
+  end component;
 
 begin
 
-  -- TODO: Actually instantiate the component to test and wire all signals to the corresponding
-  -- input or output. Note that DUT0 is just the name of the instance that can be seen 
-  -- during simulation. What follows DUT0 is the entity name that will be used to find
-  -- the appropriate library component during simulation loading.
-  DUT0: n_adder
-  port map(
-            i_D0     => s_i_D0,
-             i_D1      => s_i_D1,
-            i_C      => s_C_i ,
-            o_C     => s_C_O,
-		o_S     => s_S);
-  --You can also do the above port map in one line using the below format: http://www.ics.uci.edu/~jmoorkan/vhdlref/compinst.html
+  -- Instantiate the Unit Under Test (UUT)
+  UUT: n_adder
+    generic map(N => N)  -- Map the generic value
+    port map(
+      i_D0 => i_D0,
+      i_D1 => i_D1,
+      i_C  => i_C,
+      o_C  => o_C,
+      o_S  => o_S
+    );
 
-  -- Assign inputs for each test case.
-  -- TODO: add test cases as needed.
-  P_TEST_CASES: process
+  -- Stimulus process to apply test vectors and observe output
+  stim_proc: process
   begin
-    -- Test case 1:
-    s_i_D0   <= x"00000000"; 
-    s_i_D1   <= x"00000000";
-    s_C_i    <= '0';
-	wait for 50 ns;
-       s_i_D0   <= x"11111111"; 
-    s_i_D1   <= x"00000000";
-    s_C_i    <= '0';
-	wait for 50 ns;
-           s_i_D0   <= x"FFFFFFFE"; 
-    s_i_D1   <= x"00000001";
-    s_C_i    <= '0';
-	wait for 50 ns;
-          s_i_D0   <= x"EEEEEEED"; 
-    s_i_D1   <= x"11111111";
-    s_C_i    <= '1';
-	wait for 50 ns;
-          s_i_D0   <= x"11111111"; 
-    s_i_D1   <= x"22222222";
-    s_C_i    <= '1';
-	wait for 50 ns;
+    -- Test Case 1: Add two 32-bit zeros with carry-in '0', expect sum = 0 and carry-out = 0
+    i_D0 <= (others => '0');
+    i_D1 <= (others => '0');
+    i_C <= '0';
+    wait for 10 ns;
+
+    -- Test Case 2: Add two 32-bit ones with carry-in '0', expect sum = "11111111111111111111111111111110" and carry-out = 1
+    i_D0 <= (others => '1');
+    i_D1 <= (others => '1');
+    i_C <= '0';
+    wait for 10 ns;
+
+    -- Test Case 3: Add 32-bit alternating pattern with carry-in '1'
+    i_D0 <= "10101010101010101010101010101010";
+    i_D1 <= "01010101010101010101010101010101";
+    i_C <= '1';
+    wait for 10 ns;
+
+    -- Test Case 4: Random 32-bit patterns with carry-in '0'
+    i_D0 <= "11001100110011001100110011001100";
+    i_D1 <= "00110011001100110011001100110011";
+    i_C <= '0';
+    wait for 10 ns;
+
+    -- End simulation
+    wait;
   end process;
 
-end mixed;
+end behavior;
+
