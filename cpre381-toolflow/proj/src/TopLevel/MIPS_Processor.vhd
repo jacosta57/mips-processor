@@ -129,6 +129,37 @@ generic(N : integer := 32); -- Generic of type integer for input/output data wid
        o_S          : out std_logic_vector(N-1 downto 0));
 end component;
 
+component fetch_logic
+port (
+       i_clk           : in  std_logic;
+       i_rst           : in  std_logic;
+       i_branch_en     : in  std_logic;
+       i_jump_en       : in  std_logic;
+       i_jr_en         : in  std_logic;
+       i_branch_addr   : in  std_logic_vector(31 downto 0);
+       i_jump_addr     : in  std_logic_vector(25 downto 0);
+       i_jr_addr       : in  std_logic_vector(31 downto 0);
+       o_PC            : out std_logic_vector(31 downto 0);
+       o_next_inst_addr: out std_logic_vector(31 downto 0)
+   );
+end component;
+
+component control_logic is
+       port (
+           i_opcode    : in  std_logic_vector(5 downto 0);
+           i_funct     : in  std_logic_vector(5 downto 0);
+           o_RegDst    : out std_logic;
+           o_Jump      : out std_logic;
+           o_Branch    : out std_logic;
+           o_MemRead   : out std_logic;
+           o_MemtoReg  : out std_logic;
+           o_ALUOp     : out std_logic_vector(1 downto 0);
+           o_MemWrite  : out std_logic;
+           o_ALUSrc    : out std_logic;
+           o_RegWrite  : out std_logic
+       );
+   end component;
+
 --Signals for the data controlling the regFile and the data coming out of it
 signal s_Mux_RegDest : std_logic_vector(4 downto 0);--Output of the mux that selects which address to write to
 signal s_RegOut1 : std_logic_vector(31 downto 0);--Carry the first value read from the regfile
@@ -142,10 +173,11 @@ signal s_ALU_Result : std_logic_vector(31 downto 0);
 --Signals For Control Module and ALU Control
 signal s_RegDest : std_logic; --Signal to act as the control signal for the mux that decides which bits in the instruction are the address for the destination
 signal s_Jump : std_logic;
+signal s_Jump_Return: std_logic;
 signal s_Branch : std_logic;
 signal s_MemRead : std_logic;
 signal s_MemtoReg : std_logic;
-signal s_ALUOp : std_logic;
+signal s_ALUOp : std_logic_vector(1 downto 0);
 signal s_ALUSrc : std_logic;
 signal s_ALU_Zero : std_logic;
 
@@ -153,7 +185,7 @@ signal s_ALU_Zero : std_logic;
 signal s_Branch_Shift : std_logic_vector(31 downto 0);
 signal s_Branch_Adder : std_logic_vector(31 downto 0);
 signal s_Branch_Mux : std_logic_vector(31 downto 0);
-signal s_Branch_Mux_Select : std_logic;
+signal s_Branch_en : std_logic;
 signal s_Jump_Shift_In : std_logic_vector(31 downto 0);
 signal s_Jump_Shift_Out : std_logic_vector(31 downto 0);
 signal s_Jump_Addr : std_logic_vector(31 downto 0);
@@ -229,49 +261,32 @@ port map(i_S => s_ALUSrc,
        i_D1 => s_Imm_SignExt,
        o_O => s_Mux_ALU);
 
-shifter_Branch: shifter
-port map(i_D => s_Imm_SignExt,
-	i_Shamt => s_Const_Shamt,
-	Right_Left => s_High,
-	Logic_Arith => s_Ground,
-	o_Q => s_Branch_Shift);
+fetch_component: fetch_logic
+port map(
+       i_clk => iCLK,
+       i_rst => iRST,
+       i_branch_en => s_Branch_En,
+       i_jump_en => s_Jump,
+       i_jr_en => s_Jump_Return,
+       i_branch_addr => s_Imm_SignExt,
+       i_jump_addr => s_Inst(25 downto 0),
+       i_jr_addr => s_RegOut1,
+       o_PC => s_Inst,
+       o_next_inst_addr => s_NextInstAddr);
 
-s_Jump_Shift_In <= "000000" & s_Inst(25 downto 0);
-
-shifter_Jump: shifter
-port map(i_D => s_Jump_Shift_In,
-	i_Shamt => s_Const_Shamt,
-	Right_Left => s_High,
-	Logic_Arith => s_Ground,
-	o_Q => s_Jump_Shift_Out);
-
-pc_reg: n_reg
-	port map(i_CLK     => iCLK,
-         	i_RST     =>iRST,
-         	i_WE       => iCLK,
-        	 i_D        => s_PC_In,
-        	 o_Q	    =>s_PC_Out);
-
-pc_Add: n_adder
-port map(i_D0   => s_PC_Out,
-	i_D1    => s_Const_Add_4,
-	i_C     => s_Ground,
-	o_S	=> s_PC_Adder);
-
-s_Jump_Addr <= s_PC_Adder(31 downto 28) & s_Jump_Shift_Out(27 downto 0);
-s_Branch_Mux_Select <= s_ALU_Zero and s_Branch;
-
-mux_Branch: mux2t1_N
-port map(i_S => s_Branch_Mux_Select,
-       i_D0 => s_PC_Adder,
-       i_D1 => s_Branch_Adder,
-       o_O => s_Branch_Mux);
-
-mux_Jump: mux2t1_N
-port map(i_S => s_Jump,
-       i_D0 => s_Branch_Mux,
-       i_D1 => s_Jump_Addr,
-       o_O => s_PC_In);
+control_component: control_logic
+    port map(
+        i_opcode => s_Inst(31 downto 26),
+        i_funct =>s_Inst(5 downto 0),
+        o_RegDst => s_RegDest,
+        o_Jump => s_Jump,
+        o_Branch =>s_Branch,
+        o_MemRead => s_MemRead,
+        o_MemtoReg => s_MemtoReg,
+        o_ALUOp => s_ALUOp,
+        o_MemWrite => s_DMemWr,
+        o_ALUSrc => s_ALUSrc,
+        o_RegWrite => s_RegWr);
 
 mux_Mem_Reg: mux2t1_N
 port map(i_S => s_MemtoReg,

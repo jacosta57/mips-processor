@@ -32,4 +32,4 @@ oQ <= i_D0 when (iC = '0') else
 	'0';
 
 
-end mux2t1;
+end Behavioral;
