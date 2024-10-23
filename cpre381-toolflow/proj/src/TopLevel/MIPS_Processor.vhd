@@ -169,7 +169,8 @@ component control_logic is
            o_ALUOp     : out std_logic_vector(1 downto 0);
            o_MemWrite  : out std_logic;
            o_ALUSrc    : out std_logic;
-           o_RegWrite  : out std_logic
+           o_RegWrite  : out std_logic;
+           o_Halt      : out std_logic
        );
    end component;
 
@@ -277,19 +278,19 @@ port map(i_S => s_ALUSrc,
 
 alu_ctrl: alu_control
     port map(
-        i_ALUOp => s_ALUOp,
-        i_Funct => s_Inst(5 downto 0),
+        i_ALUOp         => s_ALUOp,
+        i_Funct         => s_Inst(5 downto 0),
         o_ALU_Operation => s_ALU_Operation
     );
 
 alu_1: alu
     port map(
-        i_A => s_RegOut1,
-        i_B => s_Mux_ALU,
-        i_ALUOp => s_ALU_Operation,
-        i_shamt => s_Inst(10 downto 6),
-        o_F => s_ALU_Result,
-        o_Zero => s_ALU_Zero,
+        i_A        => s_RegOut1,
+        i_B        => s_Mux_ALU,
+        i_ALUOp    => s_ALU_Operation,
+        i_shamt    => s_Inst(10 downto 6),
+        o_F        => s_ALU_Result,
+        o_Zero     => s_ALU_Zero,
         o_Overflow => s_Ovfl
     );
 
@@ -310,17 +311,18 @@ port map(
 
 control_component: control_logic
     port map(
-        i_opcode => s_Inst(31 downto 26),
-        i_funct =>s_Inst(5 downto 0),
-        o_RegDst => s_RegDest,
-        o_Jump => s_Jump,
-        o_Branch =>s_Branch,
-        o_MemRead => s_MemRead,
+        i_opcode   => s_Inst(31 downto 26),
+        i_funct    => s_Inst(5 downto 0),
+        o_RegDst   => s_RegDest,
+        o_Jump     => s_Jump,
+        o_Branch   => s_Branch,
+        o_MemRead  => s_MemRead,
         o_MemtoReg => s_MemtoReg,
-        o_ALUOp => s_ALUOp,
+        o_ALUOp    => s_ALUOp,
         o_MemWrite => s_DMemWr,
-        o_ALUSrc => s_ALUSrc,
-        o_RegWrite => s_RegWr);
+        o_ALUSrc   => s_ALUSrc,
+        o_RegWrite => s_RegWr,
+        o_Halt     => s_Halt);
 
         
 mux_Mem_Reg: mux2t1_N

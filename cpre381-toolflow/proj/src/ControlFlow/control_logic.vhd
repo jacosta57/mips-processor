@@ -26,8 +26,8 @@ entity control_logic is
         o_ALUOp     : out std_logic_vector(1 downto 0);
         o_MemWrite  : out std_logic;
         o_ALUSrc    : out std_logic;
-        o_RegWrite  : out std_logic
-    );
+        o_RegWrite  : out std_logic;
+        o_Halt      : out std_logic);
 end control_logic;
 
 architecture behavioral of control_logic is
@@ -41,6 +41,7 @@ architecture behavioral of control_logic is
         MemWrite  : std_logic;
         ALUSrc    : std_logic;
         RegWrite  : std_logic;
+	Halt      : std_logic;
     end record;
 
     signal r_control : t_control_signals;
@@ -48,7 +49,7 @@ begin
     process(i_opcode, i_funct)
     begin
         -- Default values
-        r_control <= ('0', '0', '0', '0', '0', "00", '0', '0', '0');
+        r_control <= ('0', '0', '0', '0', '0', "00", '0', '0', '0', '0');
 
         case to_integer(unsigned(i_opcode)) is
             when 0 =>  -- R-type instructions
@@ -92,6 +93,9 @@ begin
                 r_control.RegWrite <= '1';
                 r_control.ALUOp    <= "11";
 
+	    when 20 => -- Halt
+		r_control.Halt     <= '1';
+
             when 35 =>  -- lw
                 r_control.ALUSrc   <= '1';
                 r_control.MemRead  <= '1';
@@ -117,5 +121,6 @@ begin
     o_MemWrite <= r_control.MemWrite;
     o_ALUSrc   <= r_control.ALUSrc;
     o_RegWrite <= r_control.RegWrite;
+    o_Halt     <= r_control.Halt;
 
 end behavioral;
