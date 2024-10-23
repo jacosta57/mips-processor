@@ -107,9 +107,22 @@ component mux2t1_N
 
 end component;
 
-component ALU 
-
+component alu 
+	port (
+             i_A         : in std_logic_vector(31 downto 0);
+             i_B         : in std_logic_vector(31 downto 0);
+             i_ALUOp     : in std_logic_vector(3 downto 0);
+             i_shamt     : in std_logic_vector(4 downto 0);
+             o_F         : out std_logic_vector(31 downto 0);
+             o_Zero      : out std_logic;
+             o_Overflow  : out std_logic);
 end component;
+
+component alu_control is
+	port (
+	      i_ALUOp	 :in std_logic_vector(1 downto 0);
+	      i_Funct    :in std_logic_vector(5 downto 0);
+	      o_ALU_Operation : out std_logic_vector(3 downto 0));
 
 component shifter
 	port ( i_D : in std_logic_vector(31 downto 0);
@@ -180,6 +193,7 @@ signal s_MemtoReg : std_logic;
 signal s_ALUOp : std_logic_vector(1 downto 0);
 signal s_ALUSrc : std_logic;
 signal s_ALU_Zero : std_logic;
+signal s_ALU_Operation : std_logic_vector (3 downto 0);
 
 --Signals for branch and jump instructions
 signal s_Branch_Shift : std_logic_vector(31 downto 0);
@@ -260,6 +274,24 @@ port map(i_S => s_ALUSrc,
        i_D0 => s_DMemData,
        i_D1 => s_Imm_SignExt,
        o_O => s_Mux_ALU);
+
+alu_ctrl: alu_control
+    port map(
+        i_ALUOp => s_ALUOp,
+        i_Funct => s_Inst(5 downto 0),
+        o_ALU_Operation => s_ALU_Operation
+    );
+
+alu_1: alu
+    port map(
+        i_A => s_RegOut1,
+        i_B => s_Mux_ALU,
+        i_ALUOp => s_ALU_Operation,
+        i_shamt => s_Inst(10 downto 6),
+        o_F => s_ALU_Result,
+        o_Zero => s_ALU_Zero,
+        o_Overflow => s_Ovfl
+    );
 
 fetch_component: fetch_logic
 port map(

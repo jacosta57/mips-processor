@@ -1,0 +1,57 @@
+-------------------------------------------------------------------------
+-- Jayson Acosta
+--
+--
+-- alu_control.vhd
+-------------------------------------------------------------------------
+-- DESCRIPTION: This file contains an implementation of the ALU control
+-- for the MIPS single cycle processor. it takes in 2 bits to determine
+-- the operation type, then translates it to the 4 bit ALU Operation
+-------------------------------------------------------------------------
+library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity ALU_Control is
+    port(
+        i_ALUOp     : in std_logic_vector(1 downto 0);    -- From main control
+        i_Funct     : in std_logic_vector(5 downto 0);    -- Function field from instruction
+        o_ALU_Operation : out std_logic_vector(3 downto 0) -- To ALU
+    );
+end ALU_Control;
+
+architecture behavioral of ALU_Control is
+begin
+    process(i_ALUOp, i_Funct)
+    begin
+        case i_ALUOp is
+            when "00" =>  -- Memory reference or immediate
+                o_ALU_Operation <= "0010";  -- ADD
+                
+            when "01" =>  -- Branch
+                o_ALU_Operation <= "0110";  -- SUB for comparison
+                
+            when "10" =>  -- R-type
+                case i_Funct is
+                    when "100000" => o_ALU_Operation <= "0010"; -- add
+                    when "100001" => o_ALU_Operation <= "0010"; -- addu
+                    when "100100" => o_ALU_Operation <= "0000"; -- and
+                    when "100101" => o_ALU_Operation <= "0001"; -- or
+                    when "100110" => o_ALU_Operation <= "0011"; -- xor
+                    when "100111" => o_ALU_Operation <= "0100"; -- nor
+                    when "101010" => o_ALU_Operation <= "0111"; -- slt
+                    when "000000" => o_ALU_Operation <= "1000"; -- sll
+                    when "000010" => o_ALU_Operation <= "1001"; -- srl
+                    when "000011" => o_ALU_Operation <= "1010"; -- sra
+                    when "100010" => o_ALU_Operation <= "0110"; -- sub
+                    when "100011" => o_ALU_Operation <= "0110"; -- subu
+                    when others   => o_ALU_Operation <= "0000";
+                end case;
+                
+            when "11" =>  -- Immediate operations
+                o_ALU_Operation <= "0010";  -- Default to ADD for immediate
+                
+            when others =>
+                o_ALU_Operation <= "0000";
+        end case;
+    end process;
+end behavioral;
