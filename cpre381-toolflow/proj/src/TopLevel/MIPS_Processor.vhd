@@ -269,9 +269,9 @@ port map(i_imm16 => s_Inst(15 downto 0),
 	zero_sign_s => s_High,
 	o_imm32 => s_Imm_SignExt);
 
-mux_ALU_Reg_Mem: mux2t1_N
+mux_ALU_Reg_Imm: mux2t1_N
 port map(i_S => s_ALUSrc,
-       i_D0 => s_DMemData,
+       i_D0 => s_RegOut1,
        i_D1 => s_Imm_SignExt,
        o_O => s_Mux_ALU);
 
@@ -293,11 +293,13 @@ alu_1: alu
         o_Overflow => s_Ovfl
     );
 
+    s_DMemAddr => s_ALU_Result;
+
 fetch_component: fetch_logic
 port map(
        i_clk => iCLK,
        i_rst => iRST,
-       i_branch_en => s_Branch_En,
+       i_branch_en => s_Branch_En and s_ALU_Zero,
        i_jump_en => s_Jump,
        i_jr_en => s_Jump_Return,
        i_branch_addr => s_Imm_SignExt,
@@ -320,6 +322,7 @@ control_component: control_logic
         o_ALUSrc => s_ALUSrc,
         o_RegWrite => s_RegWr);
 
+        
 mux_Mem_Reg: mux2t1_N
 port map(i_S => s_MemtoReg,
        i_D0 => s_DMemAddr,
