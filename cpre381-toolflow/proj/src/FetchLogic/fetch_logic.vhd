@@ -55,7 +55,8 @@ begin
             -- Combine upper 4 bits of PC+4 with jump address and 00
             s_next_PC <= s_PC_plus_4(31 downto 28) & i_jump_addr & "00";
         elsif i_branch_en = '1' then
-            s_next_PC <= std_logic_vector(unsigned(s_PC_plus_4) + unsigned(i_branch_addr));
+		
+            s_next_PC <= std_logic_vector(unsigned(s_PC_plus_4) + std_logic_vector(shift_left(unsigned(i_branch_addr), 2);
         else
             s_next_PC <= s_PC_plus_4;
         end if;

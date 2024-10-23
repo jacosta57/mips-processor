@@ -306,7 +306,7 @@ port map(
        i_branch_addr => s_Imm_SignExt,
        i_jump_addr => s_Inst(25 downto 0),
        i_jr_addr => s_RegOut1,
-       o_PC => s_Inst,
+       o_PC => ,
        o_next_inst_addr => s_NextInstAddr);
 
 control_component: control_logic
