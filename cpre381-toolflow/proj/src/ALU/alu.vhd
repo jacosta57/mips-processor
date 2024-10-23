@@ -30,12 +30,9 @@ architecture mixed of alu is
     signal s_shiftResult : std_logic_vector(31 downto 0);
 
 begin
-    process(i_A, i_B, i_ALUOp, i_shamt)
+    process(i_A, i_B, i_ALUOp, i_shamt, s_addResult, s_subResult)
     begin
-        s_addResult <= (others => '0');
-        s_subResult <= (others => '0');
-        o_F <= (others => '0');
-        o_Overflow <= '0';
+
 
         case i_ALUOp is
             when "0000" =>  -- AND
@@ -80,7 +77,10 @@ begin
                 o_F <= i_B(15 downto 0) & x"0000";
             
             when others =>
-                o_F <= (others => '0');
+                        s_addResult <= (others => '0');
+       			 s_subResult <= (others => '0');
+      		 o_F <= (others => '0');
+       		o_Overflow <= '0';
         end case;
     end process;
 

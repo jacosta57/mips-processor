@@ -1,6 +1,6 @@
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
-Start time: 15:00:53 on Oct 23,2024
-vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd internal/testpy/tb.vhd proj/src/add_sub.vhd proj/src/MIPS_types.vhd proj/src/Basic Components/extenders.vhd proj/src/Basic Components/Decoder_32.vhd proj/src/Basic Components/OnesComp.vhd proj/src/Basic Components/Shifter.vhd proj/src/Basic Components/n-adder.vhd proj/src/ControlFlow/control_logic.vhd proj/src/TopLevel/MIPS_Processor.vhd proj/src/TopLevel/mem.vhd proj/src/Muxes/32t1_mux_32.vhd proj/src/Muxes/mux2t1_N.vhd proj/src/Muxes/mux2t1.vhd proj/src/ALU/alu.vhd proj/src/ALU/alu_control.vhd proj/src/RegFile/n_reg.vhd proj/src/RegFile/reg_file.vhd proj/src/Provided Components/adder.vhd proj/src/Provided Components/invg.vhd proj/src/Provided Components/andg2.vhd proj/src/Provided Components/xorg2.vhd proj/src/Provided Components/org2.vhd proj/src/Provided Components/dffg.vhd proj/src/FetchLogic/fetch_logic.vhd 
+Start time: 16:23:16 on Oct 23,2024
+vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd internal/testpy/tb.vhd proj/src/add_sub.vhd proj/src/MIPS_types.vhd proj/src/Basic Components/extenders.vhd proj/src/Basic Components/Decoder_32.vhd proj/src/Basic Components/OnesComp.vhd proj/src/Basic Components/Shifter.vhd proj/src/Basic Components/n-adder.vhd proj/src/ControlFlow/control_logic.vhd proj/src/TopLevel/MIPS_Processor.vhd proj/src/TopLevel/mem.vhd proj/src/Muxes/32t1_mux_32.vhd proj/src/Muxes/mux2t1_5.vhd proj/src/Muxes/mux2t1_N.vhd proj/src/Muxes/mux2t1.vhd proj/src/ALU/alu.vhd proj/src/ALU/alu_control.vhd proj/src/RegFile/n_reg.vhd proj/src/RegFile/reg_file.vhd proj/src/Provided Components/adder.vhd proj/src/Provided Components/invg.vhd proj/src/Provided Components/andg2.vhd proj/src/Provided Components/xorg2.vhd proj/src/Provided Components/org2.vhd proj/src/Provided Components/dffg.vhd proj/src/FetchLogic/fetch_logic.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
@@ -34,7 +34,9 @@ vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd interna
 -- Compiling architecture behavioral of control_logic
 -- Compiling entity MIPS_Processor
 -- Compiling architecture structure of MIPS_Processor
-** Error: proj/src/TopLevel/MIPS_Processor.vhd(298): near "=>": (vcom-1576) expecting == or '+' or '-' or '&'.
-** Note: proj/src/TopLevel/MIPS_Processor.vhd(335): VHDL Compiler exiting
-End time: 15:00:53 on Oct 23,2024, Elapsed time: 0:00:00
-Errors: 1, Warnings: 2
+** Error: proj/src/TopLevel/MIPS_Processor.vhd(261): near "signal": syntax error
+** Error: proj/src/TopLevel/MIPS_Processor.vhd(263): Illegal target for signal assignment.
+** Error: proj/src/TopLevel/MIPS_Processor.vhd(263): (vcom-1136) Unknown identifier "muxoutput".
+** Note: proj/src/TopLevel/MIPS_Processor.vhd(344): VHDL Compiler exiting
+End time: 16:23:17 on Oct 23,2024, Elapsed time: 0:00:01
+Errors: 3, Warnings: 2
