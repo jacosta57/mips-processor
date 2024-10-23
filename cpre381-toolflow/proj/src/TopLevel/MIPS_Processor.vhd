@@ -107,6 +107,15 @@ component mux2t1_N
 
 end component;
 
+component mux2t1_5 
+  generic(N : integer := 5); -- Generic of type integer for input/output data width. Default value is 32.
+  port(i_S          : in std_logic;
+       i_D0         : in std_logic_vector(N-1 downto 0);
+       i_D1         : in std_logic_vector(N-1 downto 0);
+       o_O          : out std_logic_vector(N-1 downto 0));
+
+end component;
+
 component alu 
 	port (
              i_A         : in std_logic_vector(31 downto 0);
@@ -123,6 +132,7 @@ component alu_control is
 	      i_ALUOp	 :in std_logic_vector(1 downto 0);
 	      i_Funct    :in std_logic_vector(5 downto 0);
 	      o_ALU_Operation : out std_logic_vector(3 downto 0));
+end component;
 
 component shifter
 	port ( i_D : in std_logic_vector(31 downto 0);
@@ -248,7 +258,7 @@ begin
 
   -- TODO: Implement the rest of your processor below this comment! 
 
-mux_RegDest: mux2t1_N
+mux_RegDest: mux2t1_5
 port map(i_S => s_RegDest,
        i_D0 => s_Inst(20 downto 16),
        i_D1 => s_Inst(15 downto 11),
@@ -294,7 +304,8 @@ alu_1: alu
         o_Overflow => s_Ovfl
     );
 
-    s_DMemAddr => s_ALU_Result;
+    s_DMemAddr <= s_ALU_Result;
+    oALUOut    <= s_ALU_Result;
 
 fetch_component: fetch_logic
 port map(
