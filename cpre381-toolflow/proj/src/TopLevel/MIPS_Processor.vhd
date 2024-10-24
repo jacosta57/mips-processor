@@ -172,6 +172,7 @@ component control_logic is
            i_funct     : in  std_logic_vector(5 downto 0);
            o_RegDst    : out std_logic;
            o_Jump      : out std_logic;
+           o_JumpReturn      : out std_logic;
            o_Jal       : out std_logic;
            o_Branch    : out std_logic;
            o_MemRead   : out std_logic;
@@ -340,6 +341,7 @@ control_component: control_logic
         o_RegDst   => s_RegDest,
         o_Jump     => s_Jump,
         o_Jal      => s_jal,
+        o_JumpReturn => s_Jump_Return,
         o_Branch   => s_Branch,
         o_MemRead  => s_MemRead,
         o_MemtoReg => s_MemtoReg,

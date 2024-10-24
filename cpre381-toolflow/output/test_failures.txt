@@ -1,4 +1,2 @@
-/home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/mips/fibonacci.s
 /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/mips/grendel.s
 /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/mips/lab3Seq.s
-/home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/mips/simplebranch.s
