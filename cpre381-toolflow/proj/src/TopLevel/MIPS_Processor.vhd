@@ -128,6 +128,7 @@ component alu_control is
 	port (
 	      i_ALUOp	 :in std_logic_vector(1 downto 0);
 	      i_Funct    :in std_logic_vector(5 downto 0);
+	      i_InstOp    : in std_logic_vector(5 downto 0);
 	      o_ALU_Operation : out std_logic_vector(3 downto 0));
 end component;
 
@@ -290,6 +291,7 @@ alu_ctrl: alu_control
     port map(
         i_ALUOp         => s_ALUOp,
         i_Funct         => s_Inst(5 downto 0),
+	i_InstOp        => s_Inst(31 downto 26),
         o_ALU_Operation => s_ALU_Operation
     );
 

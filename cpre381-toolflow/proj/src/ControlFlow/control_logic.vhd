@@ -77,6 +77,11 @@ begin
             when 8 | 9 =>  -- addi, addiu
                 r_control.ALUSrc   <= '1';
                 r_control.RegWrite <= '1';
+		
+	    when 10 => --slti
+		r_control.ALUSrc   <= '1';
+                r_control.RegWrite <= '1';
+                r_control.ALUOp    <= "11";
 
             when 12 =>  -- andi
                 r_control.ALUSrc   <= '1';
@@ -84,6 +89,11 @@ begin
                 r_control.ALUOp    <= "11";
 
             when 13 =>  -- ori
+                r_control.ALUSrc   <= '1';
+                r_control.RegWrite <= '1';
+                r_control.ALUOp    <= "11";
+	    
+	    when 14 => --xori
                 r_control.ALUSrc   <= '1';
                 r_control.RegWrite <= '1';
                 r_control.ALUOp    <= "11";
@@ -101,10 +111,12 @@ begin
                 r_control.MemRead  <= '1';
                 r_control.MemtoReg <= '1';
                 r_control.RegWrite <= '1';
+		r_control.ALUOp    <= "00";
 
             when 43 =>  -- sw
                 r_control.ALUSrc   <= '1';
                 r_control.MemWrite <= '1';
+		r_control.ALUOp    <= "00";
 
             when others => 
                 null;

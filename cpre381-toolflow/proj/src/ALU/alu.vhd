@@ -25,13 +25,14 @@ entity alu is
 end alu;
 
 architecture mixed of alu is
-    signal s_addResult, s_subResult : std_logic_vector(32 downto 0);
+    signal s_addResult, s_subResult : std_logic_vector(31 downto 0);
     signal s_sltResult : std_logic_vector(31 downto 0);
     signal s_shiftResult : std_logic_vector(31 downto 0);
     signal s_o_F : std_logic_vector(31 downto 0);
+    signal s_i_sign_xor, s_o_sign_xor :  std_logic;
 
 begin
-    process(i_A, i_B, i_ALUOp, i_shamt, s_addResult, s_subResult)
+    process(i_A, i_B, i_ALUOp, i_shamt, s_addResult, s_subResult, s_i_sign_xor, s_o_sign_xor)
     begin
 
 	
@@ -44,9 +45,11 @@ begin
                 s_o_F <= i_A or i_B;
             
             when "0010" =>  -- ADD
-                s_addResult <= std_logic_vector(('0' & signed(i_A)) + ('0' & signed(i_B)));
+                s_addResult <= std_logic_vector((signed(i_A)) + (signed(i_B)));
                 s_o_F <= s_addResult(31 downto 0);
-                o_Overflow <= s_addResult(32) xor s_addResult(31);
+		s_i_sign_xor <= i_A(31) xor i_B(31);
+		s_o_sign_xor <=s_addResult(31) xor i_A(31);
+                o_Overflow <= (s_i_sign_xor xor s_o_sign_xor) and s_o_sign_xor;
             
             when "0011" =>  -- XOR
                s_o_F <= i_A xor i_B;
@@ -55,9 +58,11 @@ begin
                 s_o_F <= i_A nor i_B;
             
             when "0110" =>  -- SUB
-                s_subResult <= std_logic_vector(('0' & signed(i_A)) - ('0' & signed(i_B)));
+                s_subResult <= std_logic_vector((signed(i_A)) - (signed(i_B)));
                 s_o_F <= s_subResult(31 downto 0);
-                o_Overflow <= s_subResult(32) xor s_subResult(31);
+		s_i_sign_xor <= i_A(31) xor i_B(31);
+		s_o_sign_xor <=s_addResult(31) xor i_A(31);
+                o_Overflow <= (s_i_sign_xor xor s_o_sign_xor) and s_o_sign_xor;
             
             when "0111" =>  -- SLT
                 if signed(i_A) < signed(i_B) then

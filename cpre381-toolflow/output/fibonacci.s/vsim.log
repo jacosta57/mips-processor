@@ -3,7 +3,7 @@ Reading pref.tcl
 # 2024.2
 
 # vsim -postsimdataflow -debugdb -c -voptargs=""+acc"" tb -do "modelsim_framework.do" -gOUTPUT_TRACE=ms.trace 
-# Start time: 21:25:26 on Oct 23,2024
+# Start time: 23:20:55 on Oct 23,2024
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Note: (vsim-8611) Generating debug db.
 # ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
@@ -60,9 +60,7 @@ Reading pref.tcl
 #    Time: 0 ns  Iteration: 0  Instance: /tb/MyMips/IMem
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ns  Iteration: 6  Instance: /tb/MyMips/DMem
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ns  Iteration: 8  Instance: /tb/MyMips/DMem
-# End time: 21:25:47 on Oct 23,2024, Elapsed time: 0:00:21
-# Errors: 0, Warnings: 7
+# End time: 23:21:15 on Oct 23,2024, Elapsed time: 0:00:20
+# Errors: 0, Warnings: 6
 Support of the MGLS_LICENSE_FILE and LM_LICENSE_FILE licensing environment variables will be discontinued starting with the 2025.1 release. Please update to using the SALT_LICENSE_SERVER variable.
 Please contact Siemens EDA Customer Support (https://support.sw.siemens.com/) for assistance.

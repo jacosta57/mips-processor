@@ -10,18 +10,21 @@
 -------------------------------------------------------------------------
 library IEEE;
 use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+use work.MIPS_types.all;
 
 entity ALU_Control is
     port(
         i_ALUOp     : in std_logic_vector(1 downto 0);    -- From main control
         i_Funct     : in std_logic_vector(5 downto 0);    -- Function field from instruction
+	i_InstOp    : in std_logic_vector(5 downto 0);
         o_ALU_Operation : out std_logic_vector(3 downto 0) -- To ALU
     );
 end ALU_Control;
 
 architecture behavioral of ALU_Control is
 begin
-    process(i_ALUOp, i_Funct)
+    process(i_ALUOp, i_Funct, i_InstOp)
     begin
         case i_ALUOp is
             when "00" =>  -- Memory reference or immediate
@@ -30,7 +33,7 @@ begin
             when "01" =>  -- Branch
                 o_ALU_Operation <= "0110";  -- SUB for comparison
                 
-            when "1-" =>  -- R-type
+            when "10" =>  -- R-type
                 case i_Funct is
                     when "100000" => o_ALU_Operation <= "0010"; -- add
                     when "100001" => o_ALU_Operation <= "0010"; -- addu
@@ -47,9 +50,19 @@ begin
                     when others   => o_ALU_Operation <= "0000";
                 end case;
                 
-            --when "11" =>  -- Immediate operations
-              --  o_ALU_Operation <= "0010";  -- Default to ADD for immediate
-                
+            when "11" =>  -- Immediate operations
+               -- o_ALU_Operation <= "0010";  -- Default to ADD for immediate
+                case to_integer(unsigned(i_InstOp)) is
+                    when 8 => o_ALU_Operation <= "0010"; -- addi
+                    when 9 => o_ALU_Operation <= "0010"; -- addui
+                    when 10 => o_ALU_Operation <= "0111"; -- slti
+                    when 12 => o_ALU_Operation <= "0000"; -- andi
+                    when 13 => o_ALU_Operation <= "0001"; -- ori
+                    when 14 => o_ALU_Operation <= "0011"; -- xori
+		    when 15 => o_ALU_Operation <= "1100"; -- lui
+                    when others   => o_ALU_Operation <= "0010";
+                end case;
+
             when others =>
                 o_ALU_Operation <= "0000";
         end case;
