@@ -48,7 +48,12 @@ begin
                 s_addResult <= std_logic_vector((resize(signed(i_A), 33)) + (resize(signed(i_B), 33)));
                 s_o_F <= s_addResult(31 downto 0);
                 s_overflow_detect <= i_A(31) & i_B(31) & s_o_F(31);
-                o_Overflow <= '1' when ((s_overflow_detect = "001") OR (s_overflow_detect = "110")) else '0';
+
+		    case (s_overflow_detect) is
+                when "001" => o_Overflow <= '1';
+                when "110" => o_Overflow <= '1';
+                when others => o_Overflow <= '0';
+                end case;
             
             when "0011" =>  -- XOR
                s_o_F <= i_A xor i_B;
@@ -56,11 +61,16 @@ begin
             when "0100" =>  -- NOR
                 s_o_F <= i_A nor i_B;
             
-            when "0110" =>  -- SUB
+            when "0110" | "1110" =>  -- SUB
                 s_subResult <= std_logic_vector((resize(signed(i_A), 33)) - (resize(signed(i_B), 33)));
                 s_o_F <= s_subResult(31 downto 0);
                 s_overflow_detect <= i_A(31) & i_B(31) & s_o_F(31);
-                o_Overflow <= '1' when ((s_overflow_detect = "001") OR (s_overflow_detect = "110")) else '0';
+
+            case (s_overflow_detect) is
+                when "001" => o_Overflow <= '1';
+                when "110" => o_Overflow <= '1';
+                when others => o_Overflow <= '0';
+                end case;
             
             when "0111" =>  -- SLT
                 if signed(i_A) < signed(i_B) then
@@ -94,10 +104,20 @@ process(s_o_F)
 	begin
 
 	o_F <= s_o_F;
-if (s_o_F = x"00000000") then 
-	o_Zero <= '1';
-else
+
+    if (s_o_F = x"00000000") then 
+    case (i_ALUOp) is
+        when "0110" => o_Zero <= '1';
+        when others => o_Zero <= '0';
+        end case;
+    elsif (s_o_F /= x"00000000")then
+        case (i_ALUOp) is
+            when "1110" => o_Zero <= '1';
+            when others => o_Zero <= '0';
+            end case;
+    else
 	o_Zero <= '0';
+
     -- Zero flag generation for branches
     --o_Zero <= '1' when s_o_F = x"00000000" else '0';
 end if;

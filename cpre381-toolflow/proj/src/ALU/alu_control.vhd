@@ -31,7 +31,11 @@ begin
                 o_ALU_Operation <= "0010";  -- ADD
                 
             when "01" =>  -- Branch
-                o_ALU_Operation <= "0110";  -- SUB for comparison
+            case to_integer(unsigned(i_InstOp)) is
+                when 4 => o_ALU_Operation <= "0110"; --beq
+                when 5 => o_ALU_Operation <= "1110"; --bne
+                when others => o_ALU_Operation <= "0000";
+		end case;
                 
             when "10" =>  -- R-type
                 case i_Funct is
