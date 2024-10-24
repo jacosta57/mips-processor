@@ -49,7 +49,7 @@ begin
                 s_o_F <= s_addResult(31 downto 0);
                 s_overflow_detect <= i_A(31) & i_B(31) & s_o_F(31);
 
-		    case (s_overflow_detect) is
+		    case s_overflow_detect is
                 when "001" => o_Overflow <= '1';
                 when "110" => o_Overflow <= '1';
                 when others => o_Overflow <= '0';
