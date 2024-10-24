@@ -1,5 +1,5 @@
 QuestaSim-64 vcom 2024.2 Compiler 2024.05 May 20 2024
-Start time: 21:20:50 on Oct 23,2024
+Start time: 21:25:24 on Oct 23,2024
 vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd internal/testpy/tb.vhd proj/src/add_sub.vhd proj/src/MIPS_types.vhd proj/src/ControlFlow/control_logic.vhd proj/src/RegFile/reg_file.vhd proj/src/RegFile/n_reg.vhd proj/src/Muxes/mux2t1_5.vhd proj/src/Muxes/32t1_mux_32.vhd proj/src/Muxes/mux2t1.vhd proj/src/Muxes/mux2t1_N.vhd proj/src/Basic Components/Shifter.vhd proj/src/Basic Components/Decoder_32.vhd proj/src/Basic Components/extenders.vhd proj/src/Basic Components/OnesComp.vhd proj/src/Basic Components/n-adder.vhd proj/src/Provided Components/andg2.vhd proj/src/Provided Components/invg.vhd proj/src/Provided Components/adder.vhd proj/src/Provided Components/xorg2.vhd proj/src/Provided Components/dffg.vhd proj/src/Provided Components/org2.vhd proj/src/TopLevel/MIPS_Processor.vhd proj/src/TopLevel/mem.vhd proj/src/ALU/alu_control.vhd proj/src/ALU/alu.vhd proj/src/FetchLogic/fetch_logic.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -66,5 +66,5 @@ vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd interna
 -- Compiling architecture mixed of alu
 -- Compiling entity fetch_logic
 -- Compiling architecture behavioral of fetch_logic
-End time: 21:20:50 on Oct 23,2024, Elapsed time: 0:00:00
+End time: 21:25:24 on Oct 23,2024, Elapsed time: 0:00:00
 Errors: 0, Warnings: 2
