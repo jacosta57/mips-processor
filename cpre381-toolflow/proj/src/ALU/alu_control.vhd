@@ -30,7 +30,7 @@ begin
             when "01" =>  -- Branch
                 o_ALU_Operation <= "0110";  -- SUB for comparison
                 
-            when "10" =>  -- R-type
+            when "1-" =>  -- R-type
                 case i_Funct is
                     when "100000" => o_ALU_Operation <= "0010"; -- add
                     when "100001" => o_ALU_Operation <= "0010"; -- addu
@@ -47,8 +47,8 @@ begin
                     when others   => o_ALU_Operation <= "0000";
                 end case;
                 
-            when "11" =>  -- Immediate operations
-                o_ALU_Operation <= "0010";  -- Default to ADD for immediate
+            --when "11" =>  -- Immediate operations
+              --  o_ALU_Operation <= "0010";  -- Default to ADD for immediate
                 
             when others =>
                 o_ALU_Operation <= "0000";
