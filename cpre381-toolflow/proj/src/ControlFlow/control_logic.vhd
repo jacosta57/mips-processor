@@ -20,6 +20,7 @@ entity control_logic is
         i_funct     : in  std_logic_vector(5 downto 0);
         o_RegDst    : out std_logic;
         o_Jump      : out std_logic;
+        o_Jal       : out std_logic;
         o_Branch    : out std_logic;
         o_MemRead   : out std_logic;
         o_MemtoReg  : out std_logic;
@@ -34,6 +35,7 @@ architecture behavioral of control_logic is
     type t_control_signals is record
         RegDst    : std_logic;
         Jump      : std_logic;
+        Jal     : std_logic;
         Branch    : std_logic;
         MemRead   : std_logic;
         MemtoReg  : std_logic;
@@ -49,7 +51,7 @@ begin
     process(i_opcode, i_funct)
     begin
         -- Default values
-        r_control <= ('0', '0', '0', '0', '0', "00", '0', '0', '0', '0');
+        r_control <= ('0', '0', '0', '0', '0', '0', "00", '0', '0', '0', '0');
 
         case to_integer(unsigned(i_opcode)) is
             when 0 =>  -- R-type instructions
@@ -68,6 +70,8 @@ begin
 
             when 3 =>  -- jal
                 r_control.Jump     <= '1';
+                r_control.Jal     <= '1';
+                r_control.RegDst   <= '0';
                 r_control.RegWrite <= '1';
 
             when 4 | 5 =>  -- beq, bne
@@ -126,6 +130,7 @@ begin
     -- Assign internal signals to output ports
     o_RegDst   <= r_control.RegDst;
     o_Jump     <= r_control.Jump;
+    o_Jal     <= r_control.Jal;
     o_Branch   <= r_control.Branch;
     o_MemRead  <= r_control.MemRead;
     o_MemtoReg <= r_control.MemtoReg;

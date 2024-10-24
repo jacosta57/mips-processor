@@ -16,6 +16,7 @@
 
 library IEEE;
 use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 
 library work;
 use work.MIPS_types.all;
@@ -171,6 +172,7 @@ component control_logic is
            i_funct     : in  std_logic_vector(5 downto 0);
            o_RegDst    : out std_logic;
            o_Jump      : out std_logic;
+           o_Jal       : out std_logic;
            o_Branch    : out std_logic;
            o_MemRead   : out std_logic;
            o_MemtoReg  : out std_logic;
@@ -186,6 +188,7 @@ component control_logic is
 signal s_Mux_RegDest : std_logic_vector(4 downto 0);--Output of the mux that selects which address to write to
 signal s_RegOut1 : std_logic_vector(31 downto 0);--Carry the first value read from the regfile
 signal s_RegOut2 : std_logic_vector(31 downto 0);--Carry the second value read from the regfile
+signal s_Mux_Reg_Mem : std_logic_vector(31 downto 0);
 
 --Signals for ALU input and outputs
 signal s_Imm_SignExt : std_logic_vector(31 downto 0);
@@ -196,8 +199,10 @@ signal s_ALU_Result : std_logic_vector(31 downto 0);
 signal s_RegDest : std_logic; --Signal to act as the control signal for the mux that decides which bits in the instruction are the address for the destination
 signal s_Jump : std_logic;
 signal s_Jump_Return: std_logic;
+signal s_jal : std_logic;
 signal s_Branch : std_logic;
 signal s_MemRead : std_logic;
+signal s_RegAddr_JalAddr: std_logic;
 signal s_MemtoReg : std_logic;
 signal s_ALUOp : std_logic_vector(1 downto 0);
 signal s_ALUSrc : std_logic;
@@ -214,9 +219,11 @@ signal s_Jump_Shift_Out : std_logic_vector(31 downto 0);
 signal s_Jump_Addr : std_logic_vector(31 downto 0);
 signal s_Jump_Mux : std_logic_vector(31 downto 0);
 
+
 --Signals for the PC register
 signal s_PC_In : std_logic_vector(31 downto 0);
 signal s_PC_Out : std_logic_vector(31 downto 0);
+signal s_PC_plus_4 : std_logic_vector(31 downto 0);
 signal s_PC_Adder : std_logic_vector(31 downto 0);
 
 --Constant signals for ground and high values
@@ -224,6 +231,7 @@ constant s_Ground : std_logic := '0';
 constant s_High : std_logic := '1';
 constant s_Const_Shamt : std_logic_vector(4 downto 0) := "00010";
 constant s_Const_Add_4 : std_logic_vector(31 downto 0) := x"00000004";
+constant s_31: std_logic_vector(4 downto 0) := "11111";
 
 
 
@@ -256,7 +264,6 @@ begin
              q    => s_DMemOut);
 
   -- TODO: Implement the rest of your processor below this comment! 
-muxtemp <= s_Inst(20 downto 16);
 
 mux_RegDest: mux2t1_5
 port map(i_S => s_RegDest,
@@ -332,6 +339,7 @@ control_component: control_logic
         i_funct    => s_Inst(5 downto 0),
         o_RegDst   => s_RegDest,
         o_Jump     => s_Jump,
+        o_Jal      => s_jal,
         o_Branch   => s_Branch,
         o_MemRead  => s_MemRead,
         o_MemtoReg => s_MemtoReg,
@@ -341,12 +349,23 @@ control_component: control_logic
         o_RegWrite => s_RegWr,
         o_Halt     => s_Halt);
 
-        
+        s_PC_plus_4 <= std_logic_vector(unsigned(s_NextInstAddr) + 4);
 mux_Mem_Reg: mux2t1_N
 port map(i_S => s_MemtoReg,
-       i_D0 => s_DMemAddr,
+       i_D0 => s_ALU_Result,
        i_D1 => s_DMemOut,
+       o_O => s_Mux_Reg_Mem);
+
+mux_Op_Jal: mux2t1_N
+port map(i_S => s_jal,
+       i_D0 => s_Mux_Reg_Mem,
+       i_D1 => s_PC_plus_4,
        o_O => s_RegWrData);
 
+mux_RegAddr_JalAddr: mux2t1_5
+port map(i_S => s_jal,
+       i_D0 => s_Inst(20 downto 16),
+       i_D1 => "11111",
+       o_O => muxtemp);
 end structure;
 
