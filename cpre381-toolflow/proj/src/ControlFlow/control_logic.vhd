@@ -50,7 +50,7 @@ architecture behavioral of control_logic is
 
     signal r_control : t_control_signals;
 begin
-    process(i_opcode, i_funct)
+    process(i_opcode, i_funct, r_control)
     begin
         -- Default values
         r_control <= ('0', '0', '0', '0', '0', '0', '0', "00", '0', '0', '0', '0');
@@ -108,6 +108,7 @@ begin
             when 15 =>  -- lui
                 r_control.ALUSrc   <= '1';
                 r_control.RegWrite <= '1';
+                r_control.MemWrite <= '0';
                 r_control.ALUOp    <= "11";
 
 	    when 20 => -- Halt

@@ -63,7 +63,7 @@ begin
                     when 12 => o_ALU_Operation <= "0000"; -- andi
                     when 13 => o_ALU_Operation <= "0001"; -- ori
                     when 14 => o_ALU_Operation <= "0011"; -- xori
-		    when 15 => o_ALU_Operation <= "1100"; -- lui
+		            when 15 => o_ALU_Operation <= "1100"; -- lui
                     when others   => o_ALU_Operation <= "0010";
                 end case;
 

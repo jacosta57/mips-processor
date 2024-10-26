@@ -100,7 +100,7 @@ begin
 	
     end process;
 
-process(s_o_F)
+process(s_o_F, i_ALUOp)
 	begin
 
 	o_F <= s_o_F;
