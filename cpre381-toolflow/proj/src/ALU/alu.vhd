@@ -35,7 +35,7 @@ begin
     process(i_A, i_B, i_ALUOp, i_shamt, s_addResult, s_subResult, s_overflow_detect, s_o_F)
     begin
 
-	
+        o_Overflow <= '0';
 
         case i_ALUOp is
             when "0000" =>  -- AND

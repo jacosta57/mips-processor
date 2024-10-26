@@ -196,6 +196,7 @@ signal s_Mux_Reg_Mem : std_logic_vector(31 downto 0);
 signal s_Imm_SignExt : std_logic_vector(31 downto 0);
 signal s_Mux_ALU : std_logic_vector(31 downto 0);
 signal s_ALU_Result : std_logic_vector(31 downto 0);
+signal s_ALU_Ovfl :std_logic;
 
 --Signals For Control Module and ALU Control
 signal s_RegDest : std_logic; --Signal to act as the control signal for the mux that decides which bits in the instruction are the address for the destination
@@ -313,9 +314,10 @@ alu_1: alu
         i_shamt    => s_Inst(10 downto 6),
         o_F        => oALUOut,
         o_Zero     => s_ALU_Zero,
-        o_Overflow => s_Ovfl
+        o_Overflow => s_ALU_Ovfl
     );
 
+    s_Ovfl <= s_ALU_Ovfl AND NOT(s_Branch);
     s_DMemAddr <= s_ALU_Result;
     s_ALU_Result    <= oALUOut;
 
