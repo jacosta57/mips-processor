@@ -1,0 +1,10 @@
+
+Exception caught at 2024-10-26 00:30:28.747256:
+Traceback (most recent call last):
+  File "/home/nakota/Desktop/CPRE381/cpre381-proj1/cpre381-toolflow/internal/snthpy/synthesis.py", line 89, in <module>
+    main(args)
+  File "/home/nakota/Desktop/CPRE381/cpre381-proj1/cpre381-toolflow/internal/snthpy/synthesis.py", line 38, in main
+    if not os.path.isdir(quartus_path):
+  File "/usr/lib/python3.10/genericpath.py", line 42, in isdir
+    st = os.stat(s)
+TypeError: stat: path should be string, bytes, os.PathLike or integer, not NoneType

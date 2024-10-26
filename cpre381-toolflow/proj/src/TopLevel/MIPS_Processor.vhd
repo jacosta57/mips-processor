@@ -175,6 +175,7 @@ component control_logic is
            o_JumpReturn      : out std_logic;
            o_Jal       : out std_logic;
            o_Branch    : out std_logic;
+           o_Zero_Extend : out std_logic;
            o_MemRead   : out std_logic;
            o_MemtoReg  : out std_logic;
            o_ALUOp     : out std_logic_vector(1 downto 0);
@@ -201,6 +202,7 @@ signal s_RegDest : std_logic; --Signal to act as the control signal for the mux 
 signal s_Jump : std_logic;
 signal s_Jump_Return: std_logic;
 signal s_jal : std_logic;
+signal s_zero_extend : std_logic;
 signal s_Branch : std_logic;
 signal s_MemRead : std_logic;
 signal s_RegAddr_JalAddr: std_logic;
@@ -286,7 +288,7 @@ port map(iCLK        => iCLK,
 
 imm_SignExtend: extenders
 port map(i_imm16 => s_Inst(15 downto 0),
-	zero_sign_s => s_High,
+	zero_sign_s => NOT(s_zero_extend),
 	o_imm32 => s_Imm_SignExt);
 
 mux_ALU_Reg_Imm: mux2t1_N
@@ -309,13 +311,13 @@ alu_1: alu
         i_B        => s_Mux_ALU,
         i_ALUOp    => s_ALU_Operation,
         i_shamt    => s_Inst(10 downto 6),
-        o_F        => s_ALU_Result,
+        o_F        => oALUOut,
         o_Zero     => s_ALU_Zero,
         o_Overflow => s_Ovfl
     );
 
     s_DMemAddr <= s_ALU_Result;
-    oALUOut    <= s_ALU_Result;
+    s_ALU_Result    <= oALUOut;
 
 process (s_Branch_En, s_ALU_Zero) begin
 s_Branch_En <= (s_Branch and s_ALU_Zero);
@@ -342,6 +344,7 @@ control_component: control_logic
         o_Jump     => s_Jump,
         o_Jal      => s_jal,
         o_JumpReturn => s_Jump_Return,
+        o_Zero_extend => s_zero_extend,
         o_Branch   => s_Branch,
         o_MemRead  => s_MemRead,
         o_MemtoReg => s_MemtoReg,

@@ -23,6 +23,7 @@ entity control_logic is
         o_JumpReturn      : out std_logic;
         o_Jal       : out std_logic;
         o_Branch    : out std_logic;
+        o_Zero_Extend : out std_logic;
         o_MemRead   : out std_logic;
         o_MemtoReg  : out std_logic;
         o_ALUOp     : out std_logic_vector(1 downto 0);
@@ -39,6 +40,7 @@ architecture behavioral of control_logic is
         JumpReturn      : std_logic;
         Jal     : std_logic;
         Branch    : std_logic;
+        Zero_Extend : std_logic;
         MemRead   : std_logic;
         MemtoReg  : std_logic;
         ALUOp     : std_logic_vector(1 downto 0);
@@ -53,7 +55,7 @@ begin
     process(i_opcode, i_funct, r_control)
     begin
         -- Default values
-        r_control <= ('0', '0', '0', '0', '0', '0', '0', "00", '0', '0', '0', '0');
+        r_control <= ('0', '0', '0', '0', '0', '0', '0', '0', "00", '0', '0', '0', '0');
 
         case to_integer(unsigned(i_opcode)) is
             when 0 =>  -- R-type instructions
@@ -93,16 +95,19 @@ begin
             when 12 =>  -- andi
                 r_control.ALUSrc   <= '1';
                 r_control.RegWrite <= '1';
+                r_control.Zero_Extend <= '1';
                 r_control.ALUOp    <= "11";
 
             when 13 =>  -- ori
                 r_control.ALUSrc   <= '1';
                 r_control.RegWrite <= '1';
+                r_control.Zero_Extend <= '1';
                 r_control.ALUOp    <= "11";
 	    
 	    when 14 => --xori
                 r_control.ALUSrc   <= '1';
                 r_control.RegWrite <= '1';
+                r_control.Zero_Extend <= '1';
                 r_control.ALUOp    <= "11";
 
             when 15 =>  -- lui
@@ -136,6 +141,7 @@ begin
     o_Jump     <= r_control.Jump;
     o_JumpReturn     <= r_control.JumpReturn;
     o_Jal     <= r_control.Jal;
+    o_Zero_extend  <= r_control.Zero_Extend;
     o_Branch   <= r_control.Branch;
     o_MemRead  <= r_control.MemRead;
     o_MemtoReg <= r_control.MemtoReg;

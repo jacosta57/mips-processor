@@ -25,14 +25,14 @@ entity alu is
 end alu;
 
 architecture mixed of alu is
-    signal s_addResult, s_subResult : std_logic_vector(32 downto 0);
+    signal s_addResult, s_subResult : std_logic_vector(31 downto 0);
     signal s_sltResult : std_logic_vector(31 downto 0);
     signal s_shiftResult : std_logic_vector(31 downto 0);
     signal s_o_F : std_logic_vector(31 downto 0);
     signal s_overflow_detect :  std_logic_vector(2 downto 0);
 
 begin
-    process(i_A, i_B, i_ALUOp, i_shamt, s_addResult, s_subResult, s_overflow_detect)
+    process(i_A, i_B, i_ALUOp, i_shamt, s_addResult, s_subResult, s_overflow_detect, s_o_F)
     begin
 
 	
@@ -45,7 +45,7 @@ begin
                 s_o_F <= i_A or i_B;
             
             when "0010" =>  -- ADD
-                s_addResult <= std_logic_vector((resize(signed(i_A), 33)) + (resize(signed(i_B), 33)));
+                s_addResult <= std_logic_vector((signed(i_A)) + (signed(i_B)));
                 s_o_F <= s_addResult(31 downto 0);
                 s_overflow_detect <= i_A(31) & i_B(31) & s_o_F(31);
 
@@ -62,7 +62,7 @@ begin
                 s_o_F <= i_A nor i_B;
             
             when "0110" | "1110" =>  -- SUB
-                s_subResult <= std_logic_vector((resize(signed(i_A), 33)) - (resize(signed(i_B), 33)));
+                s_subResult <= std_logic_vector((signed(i_A)) - (signed(i_B)));
                 s_o_F <= s_subResult(31 downto 0);
                 s_overflow_detect <= i_A(31) & i_B(31) & s_o_F(31);
 
