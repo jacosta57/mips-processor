@@ -50,6 +50,7 @@ begin
     -- Next PC selection
     process(s_PC, s_PC_plus_4, i_branch_en, i_jump_en, i_jr_en, i_branch_addr, i_jump_addr, i_jr_addr, s_shifted_branch)
     begin
+	s_shifted_branch <= x"00000000";
         if i_jr_en = '1' then
             s_next_PC <= i_jr_addr;
         elsif i_jump_en = '1' then

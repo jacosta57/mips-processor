@@ -34,7 +34,8 @@ architecture mixed of alu is
 begin
     process(i_A, i_B, i_ALUOp, i_shamt, s_addResult, s_subResult, s_overflow_detect, s_o_F)
     begin
-
+ 	s_addResult <= x"00000000";
+ 	s_subResult <= x"00000000";
         o_Overflow <= '0';
 
         case i_ALUOp is
