@@ -1,8 +1,6 @@
-Warning (292006): Can't contact license server "27008@io.ece.iastate.edu" -- this server will be ignored.
-Warning (292006): Can't contact license server "1717@io.ece.iastate.edu" -- this server will be ignored.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Standard Edition
     Info: Copyright (C) 2020  Intel Corporation. All rights reserved.
     Info: Your use of Intel Corporation's design tools, logic functions 
     Info: and other software and tools, and any partner logic 
@@ -17,11 +15,351 @@ Info: Running Quartus Prime Analysis & Synthesis
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Sat Oct 26 00:32:14 2024
+    Info: Processing started: Sun Oct 27 21:31:01 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off toolflow -c toolflow
-Error (20004): Your design targets the device family "Cyclone IV E". The specified family is not a valid device family, is not installed, or is not supported in this version of the Quartus Prime software. If you restored a project from an archived version, your project was successfully restored, but you still must specify or install a supported device family.
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 2 warnings
-    Error: Peak virtual memory: 294 megabytes
-    Error: Processing ended: Sat Oct 26 00:32:14 2024
-    Error: Elapsed time: 00:00:00
-    Error: Total CPU time (on all processors): 00:00:00
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd
+    Info (12022): Found design unit 1: alu-mixed File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 27
+    Info (12023): Found entity 1: alu File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 15
+Info (12021): Found 2 design units, including 1 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu_control.vhd
+    Info (12022): Found design unit 1: ALU_Control-behavioral File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu_control.vhd Line: 25
+    Info (12023): Found entity 1: ALU_Control File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu_control.vhd Line: 16
+Info (12021): Found 2 design units, including 1 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/Decoder_32.vhd
+    Info (12022): Found design unit 1: decoder_32-Behavioral File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/Decoder_32.vhd Line: 20
+    Info (12023): Found entity 1: decoder_32 File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/Decoder_32.vhd Line: 15
+Info (12021): Found 2 design units, including 1 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/OnesComp.vhd
+    Info (12022): Found design unit 1: onescomp-structural File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/OnesComp.vhd Line: 21
+    Info (12023): Found entity 1: onescomp File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/OnesComp.vhd Line: 14
+Info (12021): Found 2 design units, including 1 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/Shifter.vhd
+    Info (12022): Found design unit 1: shifter-Behavioral File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/Shifter.vhd Line: 23
+    Info (12023): Found entity 1: shifter File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/Shifter.vhd Line: 15
+Info (12021): Found 2 design units, including 1 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/extenders.vhd
+    Info (12022): Found design unit 1: extenders-Behavioral File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/extenders.vhd Line: 21
+    Info (12023): Found entity 1: extenders File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/extenders.vhd Line: 15
+Info (12021): Found 2 design units, including 1 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/n-adder.vhd
+    Info (12022): Found design unit 1: n_adder-structural File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/n-adder.vhd Line: 24
+    Info (12023): Found entity 1: n_adder File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/n-adder.vhd Line: 14
+Info (12021): Found 2 design units, including 1 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ControlFlow/control_logic.vhd
+    Info (12022): Found design unit 1: control_logic-behavioral File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ControlFlow/control_logic.vhd Line: 36
+    Info (12023): Found entity 1: control_logic File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ControlFlow/control_logic.vhd Line: 17
+Info (12021): Found 2 design units, including 1 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd
+    Info (12022): Found design unit 1: fetch_logic-behavioral File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 31
+    Info (12023): Found entity 1: fetch_logic File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 16
+Info (12021): Found 2 design units, including 0 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/MIPS_types.vhd
+    Info (12022): Found design unit 1: MIPS_types File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/MIPS_types.vhd Line: 15
+    Info (12022): Found design unit 2: MIPS_types-body File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/MIPS_types.vhd Line: 29
+Info (12021): Found 2 design units, including 1 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/32t1_mux_32.vhd
+    Info (12022): Found design unit 1: mux_32-Behavioral File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/32t1_mux_32.vhd Line: 19
+    Info (12023): Found entity 1: mux_32 File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/32t1_mux_32.vhd Line: 13
+Info (12021): Found 2 design units, including 1 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/mux2t1.vhd
+    Info (12022): Found design unit 1: mux2t1-Behavioral File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/mux2t1.vhd Line: 28
+    Info (12023): Found entity 1: mux2t1 File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/mux2t1.vhd Line: 19
+Info (12021): Found 2 design units, including 1 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/mux2t1_5.vhd
+    Info (12022): Found design unit 1: mux2t1_5-Behavioral File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/mux2t1_5.vhd Line: 24
+    Info (12023): Found entity 1: mux2t1_5 File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/mux2t1_5.vhd Line: 14
+Info (12021): Found 2 design units, including 1 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/mux2t1_N.vhd
+    Info (12022): Found design unit 1: mux2t1_N-Behavioral File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/mux2t1_N.vhd Line: 24
+    Info (12023): Found entity 1: mux2t1_N File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/mux2t1_N.vhd Line: 14
+Info (12021): Found 2 design units, including 1 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/adder.vhd
+    Info (12022): Found design unit 1: adder-structure File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/adder.vhd Line: 41
+    Info (12023): Found entity 1: adder File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/adder.vhd Line: 31
+Info (12021): Found 2 design units, including 1 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/andg2.vhd
+    Info (12022): Found design unit 1: andg2-dataflow File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/andg2.vhd Line: 31
+    Info (12023): Found entity 1: andg2 File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/andg2.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/dffg.vhd
+    Info (12022): Found design unit 1: dffg-mixed File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/dffg.vhd Line: 33
+    Info (12023): Found entity 1: dffg File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/dffg.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/invg.vhd
+    Info (12022): Found design unit 1: invg-dataflow File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/invg.vhd Line: 30
+    Info (12023): Found entity 1: invg File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/invg.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/org2.vhd
+    Info (12022): Found design unit 1: org2-dataflow File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/org2.vhd Line: 31
+    Info (12023): Found entity 1: org2 File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/org2.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/xorg2.vhd
+    Info (12022): Found design unit 1: xorg2-dataflow File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/xorg2.vhd Line: 31
+    Info (12023): Found entity 1: xorg2 File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/xorg2.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/RegFile/n_reg.vhd
+    Info (12022): Found design unit 1: n_reg-structural File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/RegFile/n_reg.vhd Line: 22
+    Info (12023): Found entity 1: n_reg File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/RegFile/n_reg.vhd Line: 13
+Info (12021): Found 2 design units, including 1 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/RegFile/reg_file.vhd
+    Info (12022): Found design unit 1: reg_file-structure File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/RegFile/reg_file.vhd Line: 29
+    Info (12023): Found entity 1: reg_file File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/RegFile/reg_file.vhd Line: 15
+Info (12021): Found 2 design units, including 1 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/MIPS_Processor.vhd
+    Info (12022): Found design unit 1: MIPS_Processor-structure File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/MIPS_Processor.vhd Line: 36
+    Info (12023): Found entity 1: MIPS_Processor File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/MIPS_Processor.vhd Line: 24
+Info (12021): Found 2 design units, including 1 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/mem.vhd
+    Info (12022): Found design unit 1: mem-rtl File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/mem.vhd Line: 27
+    Info (12023): Found entity 1: mem File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/mem.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/add_sub.vhd
+    Info (12022): Found design unit 1: add_sub-structure File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/add_sub.vhd Line: 31
+    Info (12023): Found entity 1: add_sub File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/add_sub.vhd Line: 20
+Info (12127): Elaborating entity "MIPS_Processor" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at MIPS_Processor.vhd(55): object "s_Halt" assigned a value but never read File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/MIPS_Processor.vhd Line: 55
+Warning (10036): Verilog HDL or VHDL warning at MIPS_Processor.vhd(58): object "s_Ovfl" assigned a value but never read File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/MIPS_Processor.vhd Line: 58
+Warning (10036): Verilog HDL or VHDL warning at MIPS_Processor.vhd(208): object "s_MemRead" assigned a value but never read File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/MIPS_Processor.vhd Line: 208
+Warning (10036): Verilog HDL or VHDL warning at MIPS_Processor.vhd(229): object "s_PC_Out" assigned a value but never read File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/MIPS_Processor.vhd Line: 229
+Warning (10492): VHDL Process Statement warning at MIPS_Processor.vhd(325): signal "s_Branch" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/MIPS_Processor.vhd Line: 325
+Info (12128): Elaborating entity "mem" for hierarchy "mem:IMem" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/MIPS_Processor.vhd Line: 252
+Info (12128): Elaborating entity "mux2t1_5" for hierarchy "mux2t1_5:mux_RegDest" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/MIPS_Processor.vhd Line: 272
+Info (12128): Elaborating entity "reg_file" for hierarchy "reg_file:regFile" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/MIPS_Processor.vhd Line: 279
+Info (12128): Elaborating entity "decoder_32" for hierarchy "reg_file:regFile|decoder_32:Decoder" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/RegFile/reg_file.vhd Line: 90
+Info (12128): Elaborating entity "n_reg" for hierarchy "reg_file:regFile|n_reg:Reg0" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/RegFile/reg_file.vhd Line: 94
+Info (12128): Elaborating entity "dffg" for hierarchy "reg_file:regFile|n_reg:Reg0|dffg:\G_n_reg:0:REGI" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/RegFile/n_reg.vhd Line: 36
+Info (12128): Elaborating entity "mux_32" for hierarchy "reg_file:regFile|mux_32:Mux1" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/RegFile/reg_file.vhd Line: 288
+Info (12128): Elaborating entity "extenders" for hierarchy "extenders:imm_SignExtend" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/MIPS_Processor.vhd Line: 290
+Info (12128): Elaborating entity "mux2t1_N" for hierarchy "mux2t1_N:mux_ALU_Reg_Imm" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/MIPS_Processor.vhd Line: 295
+Info (12128): Elaborating entity "ALU_Control" for hierarchy "ALU_Control:alu_ctrl" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/MIPS_Processor.vhd Line: 301
+Info (12128): Elaborating entity "alu" for hierarchy "alu:alu_1" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/MIPS_Processor.vhd Line: 309
+Warning (10631): VHDL Process Statement warning at alu.vhd(35): inferring latch(es) for signal or variable "s_addResult", which holds its previous value in one or more paths through the process File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Warning (10631): VHDL Process Statement warning at alu.vhd(35): inferring latch(es) for signal or variable "s_overflow_detect", which holds its previous value in one or more paths through the process File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Warning (10631): VHDL Process Statement warning at alu.vhd(35): inferring latch(es) for signal or variable "s_subResult", which holds its previous value in one or more paths through the process File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[0]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[1]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[2]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[3]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[4]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[5]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[6]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[7]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[8]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[9]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[10]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[11]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[12]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[13]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[14]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[15]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[16]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[17]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[18]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[19]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[20]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[21]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[22]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[23]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[24]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[25]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[26]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[27]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[28]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[29]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[30]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_subResult[31]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_overflow_detect[0]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_overflow_detect[1]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_overflow_detect[2]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[0]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[1]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[2]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[3]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[4]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[5]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[6]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[7]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[8]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[9]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[10]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[11]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[12]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[13]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[14]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[15]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[16]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[17]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[18]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[19]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[20]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[21]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[22]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[23]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[24]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[25]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[26]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[27]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[28]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[29]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[30]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (10041): Inferred latch for "s_addResult[31]" at alu.vhd(35) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+Info (12128): Elaborating entity "fetch_logic" for hierarchy "fetch_logic:fetch_component" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/MIPS_Processor.vhd Line: 328
+Warning (10631): VHDL Process Statement warning at fetch_logic.vhd(51): inferring latch(es) for signal or variable "s_shifted_branch", which holds its previous value in one or more paths through the process File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[0]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[1]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[2]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[3]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[4]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[5]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[6]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[7]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[8]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[9]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[10]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[11]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[12]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[13]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[14]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[15]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[16]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[17]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[18]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[19]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[20]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[21]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[22]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[23]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[24]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[25]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[26]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[27]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[28]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[29]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[30]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (10041): Inferred latch for "s_shifted_branch[31]" at fetch_logic.vhd(51) File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Info (12128): Elaborating entity "control_logic" for hierarchy "control_logic:control_component" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/MIPS_Processor.vhd Line: 341
+Info (276014): Found 2 instances of uninferred RAM logic
+    Info (276007): RAM logic "mem:IMem|ram" is uninferred due to asynchronous read logic File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/mem.vhd Line: 35
+    Info (276007): RAM logic "mem:DMem|ram" is uninferred due to asynchronous read logic File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/mem.vhd Line: 35
+Warning (276002): Cannot convert all sets of registers into RAM megafunctions when creating nodes; therefore, the resulting number of registers remaining in design can cause longer compilation time or result in insufficient memory to complete Analysis and Synthesis
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[30]" merged with LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[31]" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+    Info (13026): Duplicate LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[29]" merged with LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[31]" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+    Info (13026): Duplicate LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[28]" merged with LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[31]" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+    Info (13026): Duplicate LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[27]" merged with LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[31]" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+    Info (13026): Duplicate LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[26]" merged with LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[31]" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+    Info (13026): Duplicate LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[25]" merged with LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[31]" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+    Info (13026): Duplicate LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[24]" merged with LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[31]" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+    Info (13026): Duplicate LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[23]" merged with LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[31]" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+    Info (13026): Duplicate LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[22]" merged with LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[31]" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+    Info (13026): Duplicate LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[21]" merged with LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[31]" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+    Info (13026): Duplicate LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[20]" merged with LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[31]" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+    Info (13026): Duplicate LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[19]" merged with LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[31]" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+    Info (13026): Duplicate LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[18]" merged with LATCH primitive "fetch_logic:fetch_component|s_shifted_branch[31]" File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 51
+Warning (13012): Latch alu:alu_1|s_subResult[0] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[0] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[1] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[1] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[2] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[2] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[3] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[3] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[4] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[4] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[5] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[5] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[6] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[6] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[7] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[7] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[8] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[8] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[9] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[9] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[10] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[10] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[11] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[11] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[12] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[12] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[13] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[13] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[14] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[14] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[15] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[15] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[16] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[16] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[17] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[17] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[18] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[18] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[19] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[19] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[20] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[20] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[21] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[21] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[22] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[22] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[23] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[23] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[24] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[24] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[25] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[25] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[26] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[26] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[27] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[27] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[28] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[28] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[29] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[29] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[30] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[30] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_addResult[31] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch alu:alu_1|s_subResult[31] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd Line: 35
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal fetch_logic:fetch_component|s_PC[11] File: /home/nakotac/Cpre381/Project/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd Line: 40
+Warning (13012): Latch fetch_logic:fetch_component|s_shifted_branch[6] has unsafe behavior File: /home/nakotac/Cpre381/Project/cpre381-p

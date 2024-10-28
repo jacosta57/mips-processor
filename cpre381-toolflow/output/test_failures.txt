@@ -1,2 +1,0 @@
-proj/mips/GivenTests
-proj/mips/UnitTests
