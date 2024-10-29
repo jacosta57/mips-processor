@@ -28,18 +28,21 @@ architecture behavior of tb_alu_control is
   port(
         i_ALUOp     : in std_logic_vector(1 downto 0);    -- From main control
         i_Funct     : in std_logic_vector(5 downto 0);    -- Function field from instruction
+        i_InstOp    : in std_logic_vector(5 downto 0);
         o_ALU_Operation : out std_logic_vector(3 downto 0)); -- To ALU
   end component;
 
 
   signal s_ALU_Operation : std_logic_vector(3 downto 0);
   signal s_funct : std_logic_vector(5 downto 0);
+  signal s_InstOp : std_logic_vector(5 downto 0);
   signal  s_ALUOp     : std_logic_vector(1 downto 0);
 
 begin
 
   DUT: ALU_Control 
   port map(i_funct       => s_funct,
+            i_InstOp     => s_InstOp,
         i_ALUOp          => s_ALUOp,
          o_ALU_Operation => s_ALU_Operation);
 
@@ -49,68 +52,119 @@ begin
   begin
     
    s_ALUOp <= "00";
+   s_InstOp <= "000010";
    s_funct <=  "000001";
 	wait for 50 ns;        
 
    s_ALUOp <= "01";
+   s_InstOp <= "000100";
    s_funct <=  "000100";
 	wait for 50 ns;   
 
+  s_ALUOp <= "01";
+  s_InstOp <= "000101";
+  s_funct <=  "000100";
+ wait for 50 ns;   
+
   s_ALUOp <= "10";
+  s_InstOp <= "000101";
   s_funct <=  "100000";
  wait for 50 ns;   
 
  s_ALUOp <= "10";
+ s_InstOp <= "000101";
  s_funct <=  "100001";
 wait for 50 ns;  
 
 s_ALUOp <= "10";
+s_InstOp <= "000101";
 s_funct <=  "100100";
 wait for 50 ns;  
 
 s_ALUOp <= "10";
+s_InstOp <= "000101";
 s_funct <=  "100101";
 wait for 50 ns;  
 
 s_ALUOp <= "10";
+s_InstOp <= "000101";
 s_funct <=  "100110";
 wait for 50 ns;  
 
 s_ALUOp <= "10";
+s_InstOp <= "000101";
 s_funct <=  "100110";
 wait for 50 ns;  
 
 s_ALUOp <= "10";
+s_InstOp <= "000101";
 s_funct <=  "100111";
 wait for 50 ns;  
 
 s_ALUOp <= "10";
+s_InstOp <= "000101";
 s_funct <=  "101010";
 wait for 50 ns;  
 
 s_ALUOp <= "10";
+s_InstOp <= "000101";
 s_funct <=  "000000";
 wait for 50 ns;  
 
 s_ALUOp <= "10";
+s_InstOp <= "000101";
 s_funct <=  "000010";
 wait for 50 ns;  
 
 s_ALUOp <= "10";
+s_InstOp <= "000101";
 s_funct <=  "000011";
 wait for 50 ns;  
 
 s_ALUOp <= "10";
+s_InstOp <= "000101";
 s_funct <=  "100010";
 wait for 50 ns;  
 
 s_ALUOp <= "10";
+s_InstOp <= "000101";
 s_funct <=  "100011";
 wait for 50 ns;  
 
 s_ALUOp <= "11";
+s_InstOp <= "001000";
 s_funct <=  "000010";
 wait for 50 ns;  
+
+s_ALUOp <= "11";
+s_InstOp <= "001001";
+s_funct <=  "000010";
+wait for 50 ns;  
+
+s_ALUOp <= "11";
+s_InstOp <= "001010";
+s_funct <=  "000010";
+wait for 50 ns;  
+
+s_ALUOp <= "11";
+s_InstOp <= "001100";
+s_funct <=  "000010";
+wait for 50 ns;  
+
+s_ALUOp <= "11";
+s_InstOp <= "001101";
+s_funct <=  "000010";
+wait for 50 ns;  
+
+s_ALUOp <= "11";
+s_InstOp <= "001110";
+s_funct <=  "000010";
+wait for 50 ns;  
+
+s_ALUOp <= "11";
+s_InstOp <= "001111";
+s_funct <=  "000010";
+wait for 50 ns;  
+
   end process;
-  
 end behavior;
