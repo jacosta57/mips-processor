@@ -1,6 +1,0 @@
-﻿[Nakota]
- modelsim_paths = ["/home/nakota/intelFPGA/20.1/modelsim_ase/bin/"]
- 
- quartus_paths = ["/home/nakota/intelFPGA_lite/20.1/quartus/bin/"]
-
-needs_license = "false" 
