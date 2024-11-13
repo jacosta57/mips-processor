@@ -26,8 +26,6 @@ end alu;
 
 architecture mixed of alu is
     signal s_addResult, s_subResult : std_logic_vector(31 downto 0);
-    signal s_sltResult : std_logic_vector(31 downto 0);
-    signal s_shiftResult : std_logic_vector(31 downto 0);
     signal s_o_F : std_logic_vector(31 downto 0);
     signal s_overflow_detect :  std_logic_vector(2 downto 0);
 
@@ -119,8 +117,6 @@ process(s_o_F, i_ALUOp)
     else
 	o_Zero <= '0';
 
-    -- Zero flag generation for branches
-    --o_Zero <= '1' when s_o_F = x"00000000" else '0';
 end if;
 end process;
 

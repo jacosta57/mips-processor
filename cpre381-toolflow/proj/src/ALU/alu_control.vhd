@@ -67,6 +67,7 @@ begin
                     when others   => o_ALU_Operation <= "0010";
                 end case;
 
+
             when others =>
                 o_ALU_Operation <= "0000";
         end case;
