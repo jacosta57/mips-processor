@@ -96,7 +96,7 @@ ALUResult_Reg: n_reg
 
 RegDst_Reg: n_reg
 generic map(
-  N => 4
+  N => 5
 )
  port map(
     i_CLK => i_CLK,
@@ -108,7 +108,7 @@ generic map(
 
 MemData_Reg: n_reg
 generic map(
-  N => 5
+  N => 32
 )
  port map(
     i_CLK => i_CLK,

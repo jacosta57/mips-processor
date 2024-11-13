@@ -30,9 +30,7 @@ entity ID_EX_Reg is
        i_AddrRt          : in std_logic_vector(4 downto 0);
        i_halt           : in std_logic;
       i_JAL : in std_logic;
-      i_Ovfl          :in std_logic;
       o_JAL :out std_logic;
-      o_Ovfl          :out std_logic;
       o_halt            :out std_logic;
        o_RegWr          : out std_logic;  
        o_MemtoReg          : out std_logic;
@@ -104,7 +102,7 @@ architecture structural of ID_EX_Reg is
   
   end component;
 signal s_we : STD_LOGIC;
-
+signal s_ovfl : std_logic;
 begin
  
   s_we <= '1';
@@ -116,10 +114,10 @@ begin
       i_RegWr => i_RegWr,
       i_MemtoReg => i_MemtoReg,
       i_JAL => i_JAL,
-      i_Ovfl => i_Ovfl,
+      i_Ovfl => '0',
       i_halt => i_halt,
       o_JAL => o_JAL,
-      o_Ovfl => o_Ovfl,
+      o_Ovfl => s_ovfl,
       o_halt => o_halt,
       o_RegWr => o_RegWr,
       o_MemtoReg => o_MemtoReg

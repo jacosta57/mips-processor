@@ -560,7 +560,7 @@ EX_MEM_Reg_inst: EX_MEM_Reg
     i_WrAddr => s_EX_RegWrAddr,
     i_PC => s_EX_PC,
     i_Halt => s_EX_Halt,
-    i_Ovfl => s_EX_Ovfl,
+    i_Ovfl => s_ALU_Ovfl,
     i_JAL => s_EX_JAL,
     i_ALUZero => s_ALU_Zero,
     i_MemData => s_EX_RegData1,

@@ -59,7 +59,7 @@ begin
 
   reg_ALUOp: n_reg
   generic map(
-    N => 4
+    N => 2
 )
    port map(
       i_CLK => i_CLK,
