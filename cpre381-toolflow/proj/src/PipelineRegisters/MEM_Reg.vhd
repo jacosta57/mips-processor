@@ -14,7 +14,8 @@ entity MEM_Reg is
   port(i_CLK        : in std_logic;     -- Clock input
        i_RST        : in std_logic;     -- Reset input
        i_BranchEn          : in std_logic;     -- Data value input
-       i_MemWr          : in std_logic;
+      i_MemWr          : in std_logic;
+      i_we          : in std_logic;
        o_BranchEn          : out std_logic;
        o_MemWr          : out std_logic);
 
@@ -29,17 +30,14 @@ architecture structural of MEM_Reg is
          o_Q          : out std_logic);   -- Data value output
   end component;  
 
-  signal s_we : std_logic;
 
 begin
- 
-  s_we <= '1';
 
   reg_Branch: dffg
    port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
-      i_WE => s_we,
+      i_WE => i_we,
       i_D => i_BranchEn,
       o_Q => o_BranchEn
   );
@@ -48,7 +46,7 @@ begin
    port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
-      i_WE => s_we,
+      i_WE => i_we,
       i_D => i_MemWr,
       o_Q => o_MemWr
   );

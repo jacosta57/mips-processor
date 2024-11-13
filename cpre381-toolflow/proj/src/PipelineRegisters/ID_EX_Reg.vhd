@@ -30,6 +30,8 @@ entity ID_EX_Reg is
        i_AddrRt          : in std_logic_vector(4 downto 0);
        i_halt           : in std_logic;
       i_JAL : in std_logic;
+      i_Flush         :in std_logic;
+      i_Stall        :in std_logic;
       o_JAL :out std_logic;
       o_halt            :out std_logic;
        o_RegWr          : out std_logic;  
@@ -61,37 +63,11 @@ architecture structural of ID_EX_Reg is
          o_Q          : out std_logic_vector(N-1 downto 0));  
   end component;  
 
-  component WB_Reg is
-  port(i_CLK        : in std_logic;     -- Clock input
-       i_RST        : in std_logic;     -- Reset input
-       i_RegWr          : in std_logic;     -- Data value input
-       i_MemtoReg          : in std_logic;
-      i_Halt          :in std_logic;
-      i_Ovfl          :in std_logic;
-      i_JAL : in std_logic;
-      o_JAL :out std_logic;
-      o_Ovfl          :out std_logic;
-      o_Halt          :out std_logic;
-       o_RegWr          : out std_logic;   -- Data value output
-       o_MemtoReg          : out std_logic);
-
-  end component;
-
-  component MEM_Reg is
-  port(i_CLK        : in std_logic;     -- Clock input
-       i_RST        : in std_logic;     -- Reset input
-       i_BranchEn          : in std_logic;     -- Data value input
-       i_MemWr          : in std_logic;
-       o_BranchEn          : out std_logic;
-       o_MemWr          : out std_logic);
-
-  
-  end component;
-
   component EX_Reg is
   port(i_CLK        : in std_logic;     -- Clock input
        i_RST        : in std_logic;     -- Reset input
        i_ALUSrc          : in std_logic;     -- Data value input
+       i_we          : in std_logic;     -- Data value input
        i_ALUOp          : in std_logic_vector(1 downto 0);
        i_RegDst          : in std_logic;
        i_InstOp          : in std_logic_vector(5 downto 0);
@@ -101,21 +77,53 @@ architecture structural of ID_EX_Reg is
        o_InstOp          : out std_logic_vector(5 downto 0));
   
   end component;
+  component WB_Reg is
+  port(i_CLK        : in std_logic;     -- Clock input
+       i_RST        : in std_logic;     -- Reset input
+       i_RegWr          : in std_logic;     -- Data value input
+       i_MemtoReg          : in std_logic;
+      i_Halt          :in std_logic;
+      i_Ovfl          :in std_logic;
+      i_JAL : in std_logic;
+      i_we : in std_logic;
+      o_JAL :out std_logic;
+      o_Ovfl          :out std_logic;
+      o_Halt          :out std_logic;
+       o_RegWr          : out std_logic;   -- Data value output
+       o_MemtoReg          : out std_logic);
+  end component;
+
+  component MEM_Reg is
+  port(i_CLK        : in std_logic;     -- Clock input
+       i_RST        : in std_logic;     -- Reset input
+       i_BranchEn          : in std_logic;     -- Data value input
+      i_MemWr          : in std_logic;
+      i_we          : in std_logic;
+       o_BranchEn          : out std_logic;
+       o_MemWr          : out std_logic);
+  
+  end component;
+
 signal s_we : STD_LOGIC;
-signal s_ovfl : std_logic;
+signal s_RST : STD_Logic;
+signal s_Ovfl : STD_LOGIC;
 begin
- 
-  s_we <= '1';
+  process(i_Stall, i_Flush)
+  begin
+  s_we <= '1' XOR i_Stall;
+  s_RST <= i_RST OR i_Flush;
+end process;
 
   WB_Reg_inst: WB_Reg
    port map(
       i_CLK => i_CLK,
-      i_RST => i_RST,
+      i_RST => s_RST,
       i_RegWr => i_RegWr,
       i_MemtoReg => i_MemtoReg,
       i_JAL => i_JAL,
       i_Ovfl => '0',
       i_halt => i_halt,
+      i_we => s_we,
       o_JAL => o_JAL,
       o_Ovfl => s_ovfl,
       o_halt => o_halt,
@@ -126,11 +134,12 @@ begin
   EX_Reg_inst: EX_Reg
    port map(
       i_CLK => i_CLK,
-      i_RST => i_RST,
+      i_RST => s_RST,
       i_ALUSrc => i_ALUSrc,
       i_ALUOp => i_ALUOp,
       i_RegDst => i_RegDst,
       i_InstOp => i_InstOp,
+      i_we => s_we,
       o_ALUSrc => o_ALUSrc,
       o_ALUOp => o_ALUOp,
       o_RegDst => o_RegDst,
@@ -140,9 +149,10 @@ begin
 MEM_Reg_inst: MEM_Reg
  port map(
     i_CLK => i_CLK,
-    i_RST => i_RST,
+    i_RST => s_RST,
     i_BranchEn => i_BranchEn,
     i_MemWr => i_MemWr,
+    i_we => s_we,
     o_BranchEn => o_BranchEn,
     o_MemWr => o_MemWr
 );
@@ -150,7 +160,7 @@ MEM_Reg_inst: MEM_Reg
 PC_Reg: n_reg
  port map(
     i_CLK => i_CLK,
-    i_RST => i_RST,
+    i_RST => s_RST,
     i_WE => s_we,
     i_D => i_PC,
     o_Q => o_PC
@@ -159,7 +169,7 @@ PC_Reg: n_reg
 Read0_Reg: n_reg
  port map(
     i_CLK => i_CLK,
-    i_RST => i_RST,
+    i_RST => s_RST,
     i_WE => s_we,
     i_D => i_RegData0,
     o_Q => o_RegData0
@@ -168,7 +178,7 @@ Read0_Reg: n_reg
 Read1_Reg: n_reg
  port map(
     i_CLK => i_CLK,
-    i_RST => i_RST,
+    i_RST => s_RST,
     i_WE => s_we,
     i_D => i_RegData1,
     o_Q => o_RegData1
@@ -177,7 +187,7 @@ Read1_Reg: n_reg
 Imm_Reg: n_reg
  port map(
     i_CLK => i_CLK,
-    i_RST => i_RST,
+    i_RST => s_RST,
     i_WE => s_we,
     i_D => i_imm,
     o_Q => o_imm
@@ -189,7 +199,7 @@ generic map(
 )
  port map(
     i_CLK => i_CLK,
-    i_RST => i_RST,
+    i_RST => s_RST,
     i_WE => s_we,
     i_D => i_AddrRd,
     o_Q => o_AddrRd
@@ -201,7 +211,7 @@ generic map(
 )
  port map(
     i_CLK => i_CLK,
-    i_RST => i_RST,
+    i_RST => s_RST,
     i_WE => s_we,
     i_D => i_AddrRt,
     o_Q => o_AddrRt

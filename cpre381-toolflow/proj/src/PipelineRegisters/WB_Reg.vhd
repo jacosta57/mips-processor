@@ -18,6 +18,7 @@ entity WB_Reg is
       i_Halt          :in std_logic;
       i_Ovfl          :in std_logic;
       i_JAL : in std_logic;
+      i_we : in std_logic;
       o_JAL :out std_logic;
       o_Ovfl          :out std_logic;
       o_Halt          :out std_logic;
@@ -45,7 +46,7 @@ begin
    port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
-      i_WE => s_we,
+      i_WE => i_we,
       i_D => i_RegWr,
       o_Q => o_RegWr
   );
@@ -54,7 +55,7 @@ begin
    port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
-      i_WE => s_we,
+      i_WE => i_we,
       i_D => i_MemtoReg,
       o_Q => o_MemtoReg
   );
@@ -63,7 +64,7 @@ begin
    port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
-      i_WE => s_we,
+      i_WE => i_we,
       i_D => i_Halt,
       o_Q => o_Halt
   );
@@ -72,7 +73,7 @@ begin
    port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
-      i_WE => s_we,
+      i_WE => i_we,
       i_D => i_Ovfl,
       o_Q => o_Ovfl
   );
@@ -80,7 +81,7 @@ begin
    port map(
       i_CLK => i_CLK,
       i_RST => i_RST,
-      i_WE => s_we,
+      i_WE => i_we,
       i_D => i_JAL,
       o_Q => o_JAL
   );

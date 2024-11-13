@@ -21,6 +21,8 @@ entity MEM_WB_Reg is
        i_RegDst          : in std_logic_vector(4 downto 0);
        i_PC          : in std_logic_vector(N-1 downto 0);
 
+      i_Flush         :in std_logic;
+      i_Stall        :in std_logic;
       i_Halt          :in std_logic;
       i_Ovfl          :in std_logic;
       i_JAL : in std_logic;
@@ -56,6 +58,7 @@ architecture structural of MEM_WB_Reg is
       i_Halt          :in std_logic;
       i_Ovfl          :in std_logic;
       i_JAL : in std_logic;
+      i_we : in std_logic;
       o_JAL :out std_logic;
       o_Ovfl          :out std_logic;
       o_Halt          :out std_logic;
@@ -63,21 +66,25 @@ architecture structural of MEM_WB_Reg is
        o_MemtoReg          : out std_logic);
   end component;
 
-signal s_we : STD_LOGIC;
-
+  signal s_we : STD_LOGIC;
+  signal s_RST : STD_LOGIC;
 begin
- 
-  s_we <= '1';
+  process(i_Stall, i_Flush, i_RST)
+  begin
+  s_we <= '1' XOR i_Stall;
+  s_RST <= i_RST OR i_Flush;
+end process;
 
   WB_Reg_inst: WB_Reg
    port map(
       i_CLK => i_CLK,
-      i_RST => i_RST,
+      i_RST => s_RST,
       i_RegWr => i_RegWr,
       i_MemtoReg => i_MemtoReg,
       i_JAL => i_JAL,
       i_Ovfl => i_Ovfl,
       i_halt => i_halt,
+      i_we => s_we,
       o_JAL => o_JAL,
       o_Ovfl => o_Ovfl,
       o_halt => o_halt,
@@ -88,7 +95,7 @@ begin
 ALUResult_Reg: n_reg
  port map(
     i_CLK => i_CLK,
-    i_RST => i_RST,
+    i_RST => s_RST,
     i_WE => s_we,
     i_D => i_ALUResult,
     o_Q => o_ALUResult
@@ -100,7 +107,7 @@ generic map(
 )
  port map(
     i_CLK => i_CLK,
-    i_RST => i_RST,
+    i_RST => s_RST,
     i_WE => s_we,
     i_D => i_RegDst,
     o_Q => o_RegDst
@@ -112,7 +119,7 @@ generic map(
 )
  port map(
     i_CLK => i_CLK,
-    i_RST => i_RST,
+    i_RST => s_RST,
     i_WE => s_we,
     i_D => i_MemData,
     o_Q => o_MemData
@@ -120,7 +127,7 @@ generic map(
 PC_Reg: n_reg
  port map(
     i_CLK => i_CLK,
-    i_RST => i_RST,
+    i_RST => s_RST,
     i_WE => s_we,
     i_D => i_PC,
     o_Q => o_PC

@@ -16,6 +16,8 @@ entity IF_ID_Reg is
        i_RST        : in std_logic;     -- Reset input
        i_PC          : in std_logic_vector(N-1 downto 0);     -- Data value input
        i_Inst          : in std_logic_vector(N-1 downto 0);
+      i_Flush         :in std_logic;
+      i_Stall        :in std_logic;
        o_PC          : out std_logic_vector(N-1 downto 0);   -- Data value output
        o_Inst          : out std_logic_vector(N-1 downto 0));
 
@@ -31,15 +33,18 @@ architecture structural of IF_ID_Reg is
          o_Q          : out std_logic_vector(N-1 downto 0));   -- Data value output
   end component;  
 
-  signal s_we : std_logic;
-
+  signal s_we, s_RST : STD_LOGIC;
 begin
+  process(i_Stall, i_Flush)
+  begin
+  s_we <= '1' XOR i_Stall;
+  s_RST <= i_RST OR i_Flush;
+end process;
  
-  s_we <= '1';
   reg_PC: n_reg  
    port map(
       i_CLK => i_CLK,
-      i_RST => i_RST,
+      i_RST => s_RST,
       i_WE => s_we,
       i_D => i_PC,
       o_Q => o_PC
@@ -49,7 +54,7 @@ begin
 
    port map(
       i_CLK => i_CLK,
-      i_RST => i_RST,
+      i_RST => s_RST,
       i_WE => s_we,
       i_D => i_Inst,
       o_Q => o_Inst

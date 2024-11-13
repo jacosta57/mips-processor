@@ -24,6 +24,8 @@ entity EX_MEM_Reg is
       i_Ovfl          :in std_logic;
        i_MEMData          : in std_logic_vector(N-1 downto 0);
       i_ALUZero          :in std_logic;
+      i_Flush         :in std_logic;
+      i_Stall        :in std_logic;
 
        i_ALUOut          : in std_logic_vector(N-1 downto 0);
       i_JAL : in std_logic;
@@ -70,6 +72,7 @@ architecture structural of EX_MEM_Reg is
       i_Halt          :in std_logic;
       i_Ovfl          :in std_logic;
       i_JAL : in std_logic;
+      i_we : in std_logic;
       o_JAL :out std_logic;
       o_Ovfl          :out std_logic;
       o_Halt          :out std_logic;
@@ -78,30 +81,34 @@ architecture structural of EX_MEM_Reg is
   end component;
 
   component MEM_Reg is
-    port(i_CLK        : in std_logic;   
-         i_RST        : in std_logic;    
-         i_BranchEn          : in std_logic; 
-         i_MemWr          : in std_logic;
-         o_BranchEn          : out std_logic;
-         o_MemWr          : out std_logic);
+  port(i_CLK        : in std_logic;     -- Clock input
+       i_RST        : in std_logic;     -- Reset input
+       i_BranchEn          : in std_logic;     -- Data value input
+      i_MemWr          : in std_logic;
+      i_we          : in std_logic;
+       o_BranchEn          : out std_logic;
+       o_MemWr          : out std_logic);
   
   end component;
 
 signal s_we : STD_LOGIC;
-
+signal s_RST : STD_Logic;
 begin
- 
-  s_we <= '1';
-
+  process(i_Stall, i_Flush)
+  begin
+  s_we <= '1' XOR i_Stall;
+  s_RST <= i_RST OR i_Flush;
+end process;
   WB_Reg_inst: WB_Reg
    port map(
       i_CLK => i_CLK,
-      i_RST => i_RST,
+      i_RST => s_RST,
       i_RegWr => i_RegWr,
       i_Ovfl => i_Ovfl,
       i_Halt => i_Halt,
       i_MemtoReg => i_MemtoReg,
       i_JAL => i_JAL,
+      i_we => s_we,
       o_JAL => o_JAL,
       o_RegWr => o_RegWr,
       o_Ovfl => o_Ovfl,
@@ -112,9 +119,10 @@ begin
 MEM_Reg_inst: MEM_Reg
  port map(
     i_CLK => i_CLK,
-    i_RST => i_RST,
+    i_RST => s_RST,
     i_BranchEn => i_BranchEn,
     i_MemWr => i_MemWr,
+    i_we => s_we,
     o_BranchEn => o_BranchEn,
     o_MemWr => o_MemWr
 );
@@ -123,7 +131,7 @@ MEM_Reg_inst: MEM_Reg
 MemWrData_Reg: n_reg
  port map(
     i_CLK => i_CLK,
-    i_RST => i_RST,
+    i_RST => s_RST,
     i_WE => s_we,
     i_D => i_MemData,
     o_Q => o_MemData
@@ -132,7 +140,7 @@ MemWrData_Reg: n_reg
 ALUZero_Reg: dffg
  port map(
     i_CLK => i_CLK,
-    i_RST => i_RST,
+    i_RST => s_RST,
     i_WE => s_we,
     i_D => i_ALUZero,
     o_Q => o_ALUZero
@@ -144,7 +152,7 @@ generic map(
 )
  port map(
     i_CLK => i_CLK,
-    i_RST => i_RST,
+    i_RST => s_RST,
     i_WE => s_we,
     i_D => i_WrAddr,
     o_Q => o_WrAddr
@@ -152,7 +160,7 @@ generic map(
 PC_Reg: n_reg
  port map(
     i_CLK => i_CLK,
-    i_RST => i_RST,
+    i_RST => s_RST,
     i_WE => s_we,
     i_D => i_PC,
     o_Q => o_PC
@@ -164,7 +172,7 @@ ALUOut_Reg: n_reg
 )
  port map(
     i_CLK => i_CLK,
-    i_RST => i_RST,
+    i_RST => s_RST,
     i_WE => s_we,
     i_D => i_ALUOut,
     o_Q => o_ALUOut
