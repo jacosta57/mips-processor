@@ -1,6 +1,7 @@
 [libraries]
 
 lib.files = [
+"cpre381-toolflow/proj/test/tb_stallhalt_regs.vhd",
 "cpre381-toolflow/proj/test/tb_reg_file.vhd",
 "cpre381-toolflow/proj/test/tb_onescomp.vhd",
 "cpre381-toolflow/proj/test/tb_n_reg.vhd",
