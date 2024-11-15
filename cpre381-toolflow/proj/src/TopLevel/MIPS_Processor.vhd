@@ -144,6 +144,7 @@ component control_logic is
        port (
            i_opcode    : in  std_logic_vector(5 downto 0);
            i_funct     : in  std_logic_vector(5 downto 0);
+           i_reset    : in std_logic;
            o_RegDst    : out std_logic;
            o_Jump      : out std_logic;
            o_JumpReturn      : out std_logic;
@@ -464,6 +465,7 @@ control_component: control_logic
     port map(
         i_opcode   => s_ID_Inst(31 downto 26),
         i_funct    => s_ID_Inst(5 downto 0),
+        i_reset   =>  iRST, 
         o_RegDst   => s_RegDest,
         o_Jump     => s_Jump,
         o_Jal      => s_jal,
