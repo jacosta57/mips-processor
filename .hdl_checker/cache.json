@@ -1,0 +1,4544 @@
+{
+ "builder": {
+  "_version": "2020.1",
+  "_modelsim_ini": {
+   "name": "/home/nakota/Documents/cpre381-proj1/.hdl_checker/modelsim.ini",
+   "__class__": "Path"
+  },
+  "_logger": "hdl_checker.builders.msim",
+  "_work_folder": "/home/nakota/Documents/cpre381-proj1/.hdl_checker",
+  "_builtin_libraries": [
+   {
+    "name": "altera",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriavgz_pcie_hip",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriavgz_hssi_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "sgate_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaiigz",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "sv_std",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "modelsim_lib",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixiv_hssi_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "twentynm_hip_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaiigz_pcie_hip_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cyclone10lp",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cycloneive_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "maxv_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "twentynm_hip",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "sgate",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cyclone10lp_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "fiftyfivenm",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaii",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriavgz_hssi",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixv_hssi",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "maxii_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "twentynm_hssi_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cycloneiv_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixiv_hssi",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaii_pcie_hip",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "ieee",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cycloneiv",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cycloneiv_hssi_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaiigz_pcie_hip",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "lpm",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriavgz_pcie_hip_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixiv",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "fiftyfivenm_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cyclonev_pcie_hip_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixv_pcie_hip_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriav_pcie_hip_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cycloneiv_pcie_hip",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixv",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaiigz_hssi_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaiigz_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaii_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "maxii",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaiigz_hssi",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriavgz_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cycloneiv_pcie_hip_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriavgz",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "220model_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriav_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixiv_pcie_hip",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "lpm_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "altera_mf_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "maxv",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "twentynm_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixv_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "altera_lnsim_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "altera_lnsim",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "twentynm",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "220model",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriav_hssi_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaii_hssi",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "synopsys",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "altera_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cycloneive",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaii_pcie_hip_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "twentynm_hssi",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "std",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixiv_pcie_hip_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cycloneiv_hssi",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cyclonev_hssi_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "vital2000",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixv_hssi_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriav",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixv_pcie_hip",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "altera_mf",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cyclonev_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "std_developerskit",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "cyclonev",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "arriaii_hssi_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "verilog",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "stratixiv_ver",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   }
+  ],
+  "_added_libraries": [
+   {
+    "name": "default_library",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   },
+   {
+    "name": "work",
+    "case_sensitive": false,
+    "__class__": "Identifier"
+   }
+  ],
+  "__class__": "MSim"
+ },
+ "config_file": [
+  {
+   "name": "/tmp/hdl_checker_project_pid163797.json",
+   "__class__": "Path"
+  },
+  1731561006.3156805,
+  "generated"
+ ],
+ "database": {
+  "sources": [
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/adder.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/adder.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "env",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        27,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/adder.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        23,
+        4
+       ],
+       [
+        24,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/adder.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        25,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/adder.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        28,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_decoder_32.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_decoder_32.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        1,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_decoder_32.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        5,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_decoder_32.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "env",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        4,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_decoder_32.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        2,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/n-adder.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/n-adder.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        11,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/mux2t1.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/mux2t1.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        12,
+        4
+       ],
+       [
+        11,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/mux2t1.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        16,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/mux2t1.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "env",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        15,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/mux2t1.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        13,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_alu.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_alu.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        11,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731179203.186341,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "numeric_std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        12,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        11,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/MIPS_types.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/MIPS_types.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        12,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/MIPS_types.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "MIPS_types",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": null,
+      "locations": [
+       [
+        28,
+        0
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu_control.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731178182.412844,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu_control.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "numeric_std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        12,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu_control.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "MIPS_types",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": null,
+      "locations": [
+       [
+        13,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu_control.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        11,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_mux2t1.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_mux2t1.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        5,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_mux2t1.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "env",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        4,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_mux2t1.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        1,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_mux2t1.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        2,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_reg_file.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_reg_file.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        5,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_reg_file.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        1,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_reg_file.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        2,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_reg_file.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "env",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        4,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/ControlFlow/control_logic.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/ControlFlow/control_logic.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "numeric_std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        13,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/ControlFlow/control_logic.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        12,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/ControlFlow/control_logic.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "MIPS_types",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": null,
+      "locations": [
+       [
+        14,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731457106.6244955,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "numeric_std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        13,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        12,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/mux2t1_5.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/mux2t1_5.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        11,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/tmp/tmp5txrjcxs.vhd",
+     "__class__": "TemporaryPath"
+    },
+    "mtime": 1731560351.3499954,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/tmp/tmp5txrjcxs.vhd",
+       "__class__": "TemporaryPath"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        23,
+        4
+       ],
+       [
+        24,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/tmp/tmp5txrjcxs.vhd",
+       "__class__": "TemporaryPath"
+      },
+      "name": {
+       "name": "textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        28,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/tmp/tmp5txrjcxs.vhd",
+       "__class__": "TemporaryPath"
+      },
+      "name": {
+       "name": "env",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        27,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/tmp/tmp5txrjcxs.vhd",
+       "__class__": "TemporaryPath"
+      },
+      "name": {
+       "name": "std_logic_textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        25,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/32t1_mux_32.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/32t1_mux_32.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        10,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/org2.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/org2.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        20,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_stallhalt_regs.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731474124.4925396,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_stallhalt_regs.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "env",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        4,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_stallhalt_regs.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        2,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_stallhalt_regs.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        5,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_stallhalt_regs.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        1,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/MIPS_Processor.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731476008.854732,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/MIPS_Processor.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "MIPS_types",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": null,
+      "locations": [
+       [
+        21,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/MIPS_Processor.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "numeric_std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        18,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/MIPS_Processor.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        17,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/xorg2.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/xorg2.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        20,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_mux_32.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_mux_32.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        1,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_mux_32.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        2,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_mux_32.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        5,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_mux_32.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "env",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        4,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_mux2t1_N.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_mux2t1_N.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        10,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_n_adder.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_n_adder.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        10,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_onescomp.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_onescomp.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        10,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/PipelineRegisters/IF_ID_Reg.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731468773.9924688,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/PipelineRegisters/IF_ID_Reg.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        10,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/RegFile/reg_file.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/RegFile/reg_file.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        11,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_control_logic.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_control_logic.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        11,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/PipelineRegisters/WB_Reg.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731467656.4467337,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/PipelineRegisters/WB_Reg.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        10,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/Decoder_32.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.8571897,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/Decoder_32.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        11,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/mux2t1_N.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/mux2t1_N.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        11,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_add_sub.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_add_sub.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        1,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_add_sub.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        2,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_add_sub.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "env",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        4,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_add_sub.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        5,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/dffg.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/dffg.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        20,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/add_sub.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/add_sub.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        12,
+        4
+       ],
+       [
+        13,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/add_sub.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "env",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        16,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/add_sub.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        17,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/add_sub.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        14,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/extenders.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/extenders.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "numeric_std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        12,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/extenders.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        11,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/mem.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/mem.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "numeric_std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        5,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/mem.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "ieee",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        4,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/PipelineRegisters/MEM_Reg.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731467610.353733,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/PipelineRegisters/MEM_Reg.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        10,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/PipelineRegisters/MEM_WB_reg.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731468774.0024688,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/PipelineRegisters/MEM_WB_reg.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        10,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/invg.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/invg.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        20,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_mux2t1_df_2.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_mux2t1_df_2.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        10,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_extenders.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_extenders.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        5,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_extenders.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        1,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_extenders.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "env",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        4,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_extenders.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        2,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_fetch_logic.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_fetch_logic.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        11,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/internal/testpy/tb.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.8571897,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/internal/testpy/tb.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        17,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/internal/testpy/tb.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "env",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        20,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/internal/testpy/tb.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        21,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/internal/testpy/tb.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        18,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/Shifter.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/Shifter.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        11,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/Shifter.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "numeric_std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        12,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/RegFile/n_reg.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/RegFile/n_reg.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        10,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/OnesComp.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.8571897,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/OnesComp.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        11,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_alu_control.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_alu_control.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        11,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/andg2.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/andg2.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        20,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_Shifter.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_Shifter.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        5,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_Shifter.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "env",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "std",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        4,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_Shifter.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        1,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     },
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_Shifter.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_textio",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        2,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_n_reg.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731112545.860523,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_n_reg.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        11,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/PipelineRegisters/EX_MEM_Reg.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731468773.9791358,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/PipelineRegisters/EX_MEM_Reg.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        10,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/PipelineRegisters/ID_EX_Reg.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731468773.9858022,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/PipelineRegisters/ID_EX_Reg.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        10,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   },
+   {
+    "path": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/PipelineRegisters/EX_Reg.vhd",
+     "__class__": "Path"
+    },
+    "mtime": 1731468805.4855897,
+    "flags": {
+     "source_specific": [],
+     "single": [],
+     "dependencies": []
+    },
+    "dependencies": [
+     {
+      "owner": {
+       "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/PipelineRegisters/EX_Reg.vhd",
+       "__class__": "Path"
+      },
+      "name": {
+       "name": "std_logic_1164",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "library": {
+       "name": "IEEE",
+       "case_sensitive": false,
+       "__class__": "VhdlIdentifier"
+      },
+      "locations": [
+       [
+        10,
+        4
+       ]
+      ],
+      "__class__": "RequiredDesignUnit"
+     }
+    ],
+    "diags": []
+   }
+  ],
+  "inferred_libraries": [
+   {
+    "name": "/tmp/tmp7h_l7s_2.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/tmp/tmp5txrjcxs.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/adder.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/MIPS_Processor.vhd",
+    "__class__": "Path"
+   },
+   {
+    "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/MIPS_types.vhd",
+    "__class__": "Path"
+   }
+  ],
+  "design_units": [
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_reg_file.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "tb_reg_file",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      7,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/RegFile/reg_file.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "reg_file",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      14,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_stallhalt_regs.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "tb_stallhalt_regs",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      7,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/Shifter.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "shifter",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      14,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/mux2t1_N.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "mux2t1_N",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      13,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/PipelineRegisters/WB_Reg.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "WB_Reg",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      12,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_fetch_logic.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "tb_fetch_logic",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      13,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/MIPS_Processor.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "MIPS_Processor",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      23,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/FetchLogic/fetch_logic.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "fetch_logic",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      15,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_n_reg.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "tb_n_reg",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      13,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/RegFile/n_reg.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "n_reg",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      12,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/org2.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "org2",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      22,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_alu_control.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "tb_alu_control",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      13,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/andg2.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "andg2",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      22,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_mux2t1_N.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "tb_mux2t1_N",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      12,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/mux2t1.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "mux2t1",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      18,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_add_sub.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "tb_add_sub",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      9,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_Shifter.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "tb_shifter",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      7,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/invg.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "invg",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      22,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_extenders.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "tb_extenders",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      6,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_onescomp.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "tb_onescomp",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      12,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/adder.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "adder",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      30,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/PipelineRegisters/IF_ID_Reg.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "IF_ID_Reg",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      12,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/PipelineRegisters/EX_MEM_Reg.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "EX_MEM_Reg",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      12,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/TopLevel/mem.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "mem",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      7,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/PipelineRegisters/MEM_Reg.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "MEM_Reg",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      12,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/PipelineRegisters/MEM_WB_reg.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "MEM_WB_Reg",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      12,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_alu.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "tb_alu",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      13,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/extenders.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "extenders",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      14,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu_control.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "ALU_Control",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      15,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_mux_32.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "tb_mux_32",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      7,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/PipelineRegisters/ID_EX_Reg.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "ID_EX_Reg",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      12,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_mux2t1_df_2.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "tb_mux2t1_df_2",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      12,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/add_sub.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "add_sub",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      19,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_decoder_32.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "tb_decoder_32",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      7,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_n_adder.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "tb_n_adder",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      12,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/tmp/tmp5txrjcxs.vhd",
+     "__class__": "TemporaryPath"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "adder",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      30,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/32t1_mux_32.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "mux_32",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      12,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/Decoder_32.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "decoder_32",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      14,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/PipelineRegisters/EX_Reg.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "EX_Reg",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      12,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_control_logic.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "tb_control_logic",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      13,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/dffg.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "dffg",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      22,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/ControlFlow/control_logic.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "control_logic",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      16,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/MIPS_types.vhd",
+     "__class__": "Path"
+    },
+    "type_": "package",
+    "name": {
+     "name": "MIPS_types",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      14,
+      8
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/ALU/alu.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "alu",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      14,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/internal/testpy/tb.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "tb",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      23,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/test/tb_mux2t1.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "tb_mux2t1",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      8,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Muxes/mux2t1_5.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "mux2t1_5",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      13,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Provided Components/xorg2.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "xorg2",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      22,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/n-adder.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "n_adder",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      13,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   },
+   {
+    "owner": {
+     "name": "/home/nakota/Documents/cpre381-proj1/cpre381-toolflow/proj/src/Basic Components/OnesComp.vhd",
+     "__class__": "Path"
+    },
+    "type_": "entity",
+    "name": {
+     "name": "onescomp",
+     "case_sensitive": false,
+     "__class__": "VhdlIdentifier"
+    },
+    "locations": [
+     [
+      13,
+      7
+     ]
+    ],
+    "__class__": "VhdlDesignUnit"
+   }
+  ],
+  "__class__": "Database"
+ },
+ "__version__": "0+unknown"
+}

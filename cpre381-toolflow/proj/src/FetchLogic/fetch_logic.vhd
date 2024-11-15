@@ -35,9 +35,9 @@ architecture behavioral of fetch_logic is
     signal s_shifted_branch :   std_logic_vector(31 downto 0);
 begin
     -- PC update process
-    process(i_clk, i_rst)
+    process(i_clk, i_rst, s_PC)
     begin
-        if i_rst = '1' then
+        if i_rst = '1' AND falling_edge(i_clk)then
             s_PC <= x"00400000";  -- Initial PC value for MIPS
         elsif rising_edge(i_clk) then
             s_PC <= s_next_PC;

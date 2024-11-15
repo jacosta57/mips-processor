@@ -1,27 +1,15 @@
 onerror {resume}
-quietly set dataset_list [list vsim3 vsim2 vsim1 vsim]
+quietly set dataset_list [list vsim9 vsim8 vsim7 vsim6 vsim5 vsim4 vsim3 vsim2 vsim1 vsim]
 if {[catch {datasetcheck $dataset_list}]} {abort}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate vsim2:/tb/MyMips/fetch_component/i_clk
-add wave -noupdate vsim2:/tb/MyMips/control_component/i_opcode
-add wave -noupdate vsim2:/tb/MyMips/control_component/i_funct
-add wave -noupdate vsim2:/tb/MyMips/control_component/i_reset
-add wave -noupdate vsim2:/tb/MyMips/control_component/o_RegDst
-add wave -noupdate vsim2:/tb/MyMips/control_component/o_Jump
-add wave -noupdate vsim2:/tb/MyMips/control_component/o_JumpReturn
-add wave -noupdate vsim2:/tb/MyMips/control_component/o_Jal
-add wave -noupdate vsim2:/tb/MyMips/control_component/o_Branch
-add wave -noupdate vsim2:/tb/MyMips/control_component/o_Zero_Extend
-add wave -noupdate vsim2:/tb/MyMips/control_component/o_MemRead
-add wave -noupdate vsim2:/tb/MyMips/control_component/o_MemtoReg
-add wave -noupdate vsim2:/tb/MyMips/control_component/o_ALUOp
-add wave -noupdate vsim2:/tb/MyMips/control_component/o_MemWrite
-add wave -noupdate vsim2:/tb/MyMips/control_component/o_ALUSrc
-add wave -noupdate vsim2:/tb/MyMips/control_component/o_RegWrite
-add wave -noupdate vsim2:/tb/MyMips/control_component/o_Halt
-add wave -noupdate vsim2:/tb/MyMips/control_component/r_control
+add wave -noupdate vsim9:/tb/MyMips/fetch_component/i_clk
+add wave -noupdate vsim9:/tb/MyMips/fetch_component/i_rst
+add wave -noupdate -radix hexadecimal vsim9:/tb/MyMips/fetch_component/o_PC
+add wave -noupdate -radix hexadecimal vsim9:/tb/MyMips/IF_ID_Reg_Inst/i_Inst
+add wave -noupdate -radix hexadecimal vsim9:/tb/MyMips/IF_ID_Reg_Inst/o_Inst
+add wave -noupdate -radix hexadecimal vsim9:/tb/MyMips/IMem/q
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {245061 ps} 0}
+WaveRestoreCursors {{Cursor 1} {39972 ps} 0}
 quietly wave cursor active 1
 configure wave -namecolwidth 359
 configure wave -valuecolwidth 100
