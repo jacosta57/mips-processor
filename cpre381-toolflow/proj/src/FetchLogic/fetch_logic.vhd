@@ -69,3 +69,4 @@ begin
     o_next_inst_addr <= std_logic_vector(unsigned(s_PC) + 4);
 
 end behavioral;
+
