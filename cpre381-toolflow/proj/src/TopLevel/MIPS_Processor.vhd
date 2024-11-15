@@ -166,6 +166,8 @@ component IF_ID_Reg is
        i_RST        : in std_logic;     -- Reset input
        i_PC          : in std_logic_vector(N-1 downto 0);     -- Data value input
        i_Inst          : in std_logic_vector(N-1 downto 0);
+      i_Flush         :in std_logic;
+      i_Stall        :in std_logic;
        o_PC          : out std_logic_vector(N-1 downto 0);   -- Data value output
        o_Inst          : out std_logic_vector(N-1 downto 0)
      );
@@ -191,6 +193,8 @@ component ID_EX_Reg is
        i_AddrRt          : in std_logic_vector(4 downto 0);
        i_halt           : in std_logic;
       i_JAL : in std_logic;
+      i_Flush         :in std_logic;
+      i_Stall        :in std_logic;
       o_JAL :out std_logic;
       o_halt            :out std_logic;
        o_RegWr          : out std_logic;  
@@ -225,6 +229,8 @@ component EX_MEM_Reg is
       i_Ovfl          :in std_logic;
        i_MEMData          : in std_logic_vector(N-1 downto 0);
       i_ALUZero          :in std_logic;
+      i_Flush         :in std_logic;
+      i_Stall        :in std_logic;
 
        i_ALUOut          : in std_logic_vector(N-1 downto 0);
       i_JAL : in std_logic;
@@ -256,6 +262,8 @@ component MEM_WB_Reg is
        i_MemData          : in std_logic_vector(N-1 downto 0);
        i_RegDst          : in std_logic_vector(4 downto 0);
        i_PC          : in std_logic_vector(N-1 downto 0);
+      i_Flush         :in std_logic;
+      i_Stall        :in std_logic;
 
       i_Halt          :in std_logic;
       i_Ovfl          :in std_logic;
@@ -358,26 +366,23 @@ signal s_MEM_ALUOut : std_logic_vector(31 downto 0);
 signal s_MEM_RegData1 : std_logic_vector(31 downto 0);
 signal s_MEM_ALUZero : std_logic;
 --Signals to carry data through WB Stage
-signal s_WB_RegWr : std_logic;
-signal  s_WB_RegWrData: std_logic_vector(31 downto 0);
-signal s_WB_RegWrAddr : std_logic_vector(4 downto 0);
 signal s_WB_Halt : std_logic;
 signal s_WB_MemtoReg : std_logic;
-signal s_WB_Regdst : std_logic_vector(4 downto 0);
 signal s_WB_PC : std_logic_vector(31 downto 0);
 signal s_WB_JAL : std_logic;
 signal s_WB_Ovfl : std_logic;
 signal s_WB_ALUResult : std_logic_vector(31 downto 0);
 signal s_WB_MemData : std_logic_vector(31 downto 0);
---Constant signals for ground and high values
-constant s_Ground : std_logic := '0';
-constant s_High : std_logic := '1';
-constant s_Const_Shamt : std_logic_vector(4 downto 0) := "00010";
-constant s_Const_Add_4 : std_logic_vector(31 downto 0) := x"00000004";
-constant s_31: std_logic_vector(4 downto 0) := "11111";
 
 
-
+signal s_IFID_Stall : STD_LOGIC :='0';
+signal s_IFID_Flush  : STD_LOGIC :='0';
+signal s_IDEX_Stall : STD_LOGIC :='0';
+signal s_IDEX_Flush  : STD_LOGIC :='0';
+signal s_EXMEM_Stall : STD_LOGIC :='0';
+signal s_EXMEM_Flush  : STD_LOGIC :='0';
+signal s_MEMWB_Stall : STD_LOGIC :='0';
+signal s_MEMWB_Flush  : STD_LOGIC :='0';
 signal muxtemp : std_logic_vector(4 downto 0);
 
 begin
@@ -433,6 +438,8 @@ port map(
         i_RST => iRST,
         i_PC => s_PC_plus_4,
         i_Inst => s_Inst,
+        i_Stall => s_IFID_Stall,
+        i_Flush => s_IFID_Flush,
         o_PC => s_ID_PC,
         o_Inst => s_ID_Inst
     );
@@ -491,6 +498,8 @@ ID_EX_Reg_inst: ID_EX_Reg
     i_AddrRt => s_ID_Inst(20 downto 16),
     i_JAL => s_jal,
     i_halt => s_ID_Halt,
+        i_Stall => s_IDEX_Stall,
+        i_Flush => s_IDEX_Flush,
     o_JAL => s_EX_JAL,
     o_halt => s_EX_halt,
     o_RegWr => s_EX_RegWr,
@@ -565,6 +574,8 @@ EX_MEM_Reg_inst: EX_MEM_Reg
     i_ALUZero => s_ALU_Zero,
     i_MemData => s_EX_RegData1,
     i_ALUOut => oALUOut,
+        i_Stall => s_EXMEM_Stall,
+        i_Flush => s_EXMEM_Flush,
     o_ALUOut => s_MEM_ALUOut,
     o_MemData => s_MEM_RegData1,
     o_ALUZero => s_MEM_ALUZero,
@@ -593,13 +604,15 @@ MEM_WB_Reg_inst: MEM_WB_Reg
     i_RST => iRST,
     i_RegWr => s_MEM_RegWr,
     i_MemtoReg => s_MEM_MemtoReg,
-    i_ALUResult => s_DMemAddr,
+    i_ALUResult => s_MEM_ALUOut,
     i_MemData => s_DMemOut,
     i_RegDst => s_MEM_WrAddr,
     i_PC => s_MEM_PC,
     i_Halt => s_MEM_Halt,
     i_Ovfl => s_MEM_Ovfl,
     i_JAL => s_MEM_JAL,
+        i_Stall => s_MEMWB_Stall,
+        i_Flush => s_MEMWB_Flush,
     o_JAL => s_WB_JAL,
     o_Ovfl => s_WB_Ovfl,
     o_Halt => s_WB_Halt,
