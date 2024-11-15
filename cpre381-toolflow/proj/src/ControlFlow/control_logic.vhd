@@ -18,6 +18,7 @@ entity control_logic is
     port (
         i_opcode    : in  std_logic_vector(5 downto 0);
         i_funct     : in  std_logic_vector(5 downto 0);
+        i_reset    : in std_logic;
         o_RegDst    : out std_logic;
         o_Jump      : out std_logic;
         o_JumpReturn      : out std_logic;
@@ -52,17 +53,25 @@ architecture behavioral of control_logic is
 
     signal r_control : t_control_signals;
 begin
-    process(i_opcode, i_funct, r_control)
+    process(i_opcode, i_funct, r_control, i_reset)
     begin
+        if i_reset = '1'
+        then
+        r_control <= ('0', '0', '0', '0', '0', '0', '0', '0', "00", '0', '0', '0', '0');
+    else
         -- Default values
         r_control <= ('0', '0', '0', '0', '0', '0', '0', '0', "00", '0', '0', '0', '0');
-
         case to_integer(unsigned(i_opcode)) is
             when 0 =>  -- R-type instructions
                 r_control.RegDst   <= '1';
                 r_control.ALUOp    <= "10";
                 r_control.RegWrite <= '1';
                 
+                if to_integer(unsigned(i_funct)) = 0
+                then
+        r_control <= ('0', '0', '0', '0', '0', '0', '0', '0', "00", '0', '0', '0', '0');
+                end if;
+
                 -- Special case for jr
                 if to_integer(unsigned(i_funct)) = 8 then
                     r_control.Jump <= '1';
@@ -134,6 +143,7 @@ begin
             when others => 
                 null;
         end case;
+    end if;
     end process;
 
     -- Assign internal signals to output ports
