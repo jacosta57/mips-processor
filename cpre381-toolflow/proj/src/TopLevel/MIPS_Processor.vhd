@@ -283,6 +283,25 @@ component MEM_WB_Reg is
        );
 end component;
 
+component branch_logic is
+  port (
+      i_Branch    : in std_logic;
+      i_Opcode    : in std_logic_vector(5 downto 0);
+      i_RegData1  : in std_logic_vector(31 downto 0);
+      i_RegData2  : in std_logic_vector(31 downto 0);
+      o_Branch_Take : out std_logic);
+end component;
+
+component hazard_detection is
+  port(
+      i_Branch      : in std_logic;
+      i_Jump        : in std_logic;
+      i_JumpReg     : in std_logic;
+      i_Branch_Take : in std_logic;
+      o_IF_Flush    : out std_logic;
+      o_IF_ID_Flush : out std_logic);
+end component;
+
 --Signals for the data controlling the regFile and the data coming out of it
 signal s_Mux_RegDest : std_logic_vector(4 downto 0);--Output of the mux that selects which address to write to
 signal s_RegOut1 : std_logic_vector(31 downto 0);--Carry the first value read from the regfile
@@ -333,6 +352,7 @@ signal s_ID_Inst : std_logic_vector(31 downto 0);
 signal s_ID_Halt : std_logic;
 signal s_ID_DMemWr : std_logic;
 signal s_ID_RegWr : std_logic;
+
 --Signals to carry data through EX Stage
 signal s_EX_Imm : std_logic_vector(31 downto 0);
 signal s_EX_Halt : std_logic;
@@ -352,6 +372,7 @@ signal s_EX_InstOp : std_logic_vector(5 downto 0);
 signal s_EX_JAL : std_logic;
 signal s_EX_Ovfl : std_logic;
 signal s_EX_RegWrAddr : std_logic_vector(4 downto 0);
+
 --Signals to carry data through MEM Stage
 signal s_MEM_Branch_En, s_MEM_ALU_Zero, s_Fetch_Branch_En : std_logic;
 signal s_MEM_Imm : std_logic_vector(31 downto 0);
@@ -366,6 +387,7 @@ signal s_MEM_Ovfl : std_logic;
 signal s_MEM_ALUOut : std_logic_vector(31 downto 0);
 signal s_MEM_RegData1 : std_logic_vector(31 downto 0);
 signal s_MEM_ALUZero : std_logic;
+
 --Signals to carry data through WB Stage
 signal s_WB_Halt : std_logic;
 signal s_WB_MemtoReg : std_logic;
@@ -444,6 +466,7 @@ port map(
         o_PC => s_ID_PC,
         o_Inst => s_ID_Inst
     );
+    
 --ID Stage
 regFile: reg_file
 port map(iCLK        => iCLK,                 
@@ -479,6 +502,23 @@ control_component: control_logic
         o_ALUSrc   => s_ALUSrc,
         o_RegWrite => s_ID_RegWr,
         o_Halt     => s_ID_halt);
+
+branch_logic_inst: branch_logic
+    port map(
+        i_Branch    => s_Branch,
+        i_Opcode    => s_ID_Inst(31 downto 26),
+        i_RegData1  => s_RegOut1,
+        i_RegData2  => s_RegOut2,
+        o_Branch_Take => s_Fetch_Branch_En);
+
+hazard_detection_inst: hazard_detection
+    port map(
+        i_Branch      => s_Branch,
+        i_Jump        => s_Jump,
+        i_JumpReg     => s_Jump_Return,
+        i_Branch_Take => s_Fetch_Branch_En,
+        o_IF_Flush    => s_IF_Flush,
+        o_IF_ID_Flush => s_IFID_Flush);        
 
 ID_EX_Reg_inst: ID_EX_Reg
  port map(
