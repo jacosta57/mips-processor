@@ -677,7 +677,7 @@ EX_MEM_Reg_inst: EX_MEM_Reg
     i_JAL => s_EX_JAL,
     i_ALUZero => s_ALU_Zero,
     i_MemData => s_EX_RegData1,
-    i_ALUOut => oALUOut,
+    i_ALUOut => s_ALU_Result,
         i_Stall => s_EXMEM_Stall,
         i_Flush => s_EXMEM_Flush,
     o_ALUOut => s_MEM_ALUOut,
@@ -695,9 +695,9 @@ EX_MEM_Reg_inst: EX_MEM_Reg
 );
 --MEM Stage
 
-process (s_MEM_Branch_En, s_MEM_ALU_Zero) begin
-s_Fetch_Branch_En <= (s_MEM_Branch_En AND s_MEM_ALU_Zero);
-end process;
+--process (s_MEM_Branch_En, s_MEM_ALU_Zero) begin
+--s_Fetch_Branch_En <= (s_MEM_Branch_En AND s_MEM_ALU_Zero);
+--end process;
 
          s_DMemAddr <= s_MEM_ALUOut;
          s_DMemData <= s_MEM_RegData1;            

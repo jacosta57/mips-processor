@@ -31,21 +31,19 @@ architecture Behavioral of forwarding_logic is
 	begin
 	process(i_MEM_RegWr, i_WB_RegWr, i_MEM_RegDst, i_WB_RegDst, i_Rs, i_Rt)
 	begin
+            o_Mux0_s <= "00";
+            o_Mux1_s <= "00";
+
         if ((i_Rs = i_MEM_RegDst) AND (i_MEM_RegWr = '1') AND (i_MEM_RegDst /= "00000")) then
             o_Mux0_s <= "10";
-            o_Mux1_s <= "00";
-        elsif ((i_Rt = i_MEM_RegDst) AND (i_MEM_RegWr = '1') AND (i_MEM_RegDst /= "00000")) then
-            o_Mux0_s <= "00";
-            o_Mux1_s <= "10";
         elsif ((i_Rs = i_WB_RegDst) AND (i_WB_RegWr = '1') AND (i_WB_RegDst /= "00000")) then
             o_Mux0_s <= "01";
-            o_Mux1_s <= "00";
+        end if;
+
+        if ((i_Rt = i_MEM_RegDst) AND (i_MEM_RegWr = '1') AND (i_MEM_RegDst /= "00000")) then
+            o_Mux1_s <= "10";
         elsif ((i_Rt = i_WB_RegDst) AND (i_WB_RegWr = '1') AND (i_WB_RegDst /= "00000")) then
-            o_Mux0_s <= "00";
             o_Mux1_s <= "01";
-        else
-            o_Mux0_s <= "00";
-            o_Mux1_s <= "00";
             end if;
 	end process;	
 end Behavioral;
