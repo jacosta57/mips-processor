@@ -37,7 +37,7 @@ begin
     -- PC update process
     process(i_clk, i_rst, s_PC)
     begin
-        if i_rst = '1' AND falling_edge(i_clk)then
+        if i_rst = '1' AND i_clk = '0' then
             s_PC <= x"00400000";  -- Initial PC value for MIPS
         elsif rising_edge(i_clk) then
             s_PC <= s_next_PC;

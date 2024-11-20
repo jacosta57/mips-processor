@@ -161,6 +161,26 @@ component control_logic is
        );
    end component;
 
+component forwarding_logic is
+  port(i_MEM_RegWr  :   in std_logic;
+    i_WB_RegWr  :in std_logic;
+    i_MEM_RegDst    :   in std_logic_vector(4 downto 0);
+    i_WB_RegDst    :   in std_logic_vector(4 downto 0);
+    i_Rs            : in std_logic_vector(4 downto 0);
+    i_Rt            : in std_logic_vector(4 downto 0);
+    o_Mux0_s        : out std_logic_vector(1 downto 0);
+    o_Mux1_s        : out std_logic_vector(1 downto 0));
+end component;
+
+component mux3t1_N is
+  generic(N : integer := 32); -- Generic of type integer for input/output data width. Default value is 32.
+  port(i_S          : in std_logic_vector(1 downto 0);
+       i_D0         : in std_logic_vector(N-1 downto 0);
+       i_D1         : in std_logic_vector(N-1 downto 0);
+       i_D2         : in std_logic_vector(N-1 downto 0);
+       o_O          : out std_logic_vector(N-1 downto 0));
+end component;
+
 component IF_ID_Reg is
   generic(N : integer := 32); 
   port(i_CLK        : in std_logic;     -- Clock input
@@ -192,6 +212,7 @@ component ID_EX_Reg is
        i_imm          : in std_logic_vector(N-1 downto 0);
        i_AddrRd          : in std_logic_vector(4 downto 0);
        i_AddrRt          : in std_logic_vector(4 downto 0);
+       i_AddrRs          : in std_logic_vector(4 downto 0);
        i_halt           : in std_logic;
       i_JAL : in std_logic;
       i_Flush         :in std_logic;
@@ -209,7 +230,7 @@ component ID_EX_Reg is
        o_imm          : out std_logic_vector(N-1 downto 0);
        o_AddrRd          : out std_logic_vector(4 downto 0);
        o_AddrRt          : out std_logic_vector(4 downto 0);
-
+       o_AddrRs          : out std_logic_vector(4 downto 0);
        o_ALUOp          : out std_logic_vector(1 downto 0);
        o_RegDst          : out std_logic;
        o_InstOp          : out std_logic_vector(5 downto 0)
@@ -307,12 +328,17 @@ signal s_Mux_RegDest : std_logic_vector(4 downto 0);--Output of the mux that sel
 signal s_RegOut1 : std_logic_vector(31 downto 0);--Carry the first value read from the regfile
 signal s_RegOut2 : std_logic_vector(31 downto 0);--Carry the second value read from the regfile
 signal s_Mux_Reg_Mem : std_logic_vector(31 downto 0);
+signal s_ALU_Mux_O_0 : std_logic_vector(31 downto 0);
+signal s_ALU_Mux_O_1 : std_logic_vector(31 downto 0);
+
 
 --Signals for ALU input and outputs
 signal s_Imm_SignExt : std_logic_vector(31 downto 0);
 signal s_Mux_ALU : std_logic_vector(31 downto 0);
 signal s_ALU_Result : std_logic_vector(31 downto 0);
 signal s_ALU_Ovfl :std_logic;
+signal s_ALU_Mux_S_0 : std_logic_vector(1 downto 0);
+signal s_ALU_Mux_S_1 : std_logic_vector(1 downto 0);
 
 --Signals For Control Module and ALU Control
 signal s_RegDest : std_logic; --Signal to act as the control signal for the mux that decides which bits in the instruction are the address for the destination
@@ -320,6 +346,7 @@ signal s_Jump : std_logic;
 signal s_Jump_Return: std_logic;
 signal s_jal : std_logic;
 signal s_zero_extend : std_logic;
+signal s_NOT_zero_extend : std_logic;
 signal s_Branch : std_logic;
 signal s_MemRead : std_logic;
 signal s_RegAddr_JalAddr: std_logic;
@@ -345,6 +372,7 @@ signal s_PC_In : std_logic_vector(31 downto 0);
 signal s_PC_Out : std_logic_vector(31 downto 0);
 signal s_PC_plus_4 : std_logic_vector(31 downto 0);
 signal s_PC_Adder : std_logic_vector(31 downto 0);
+signal s_IF_Flush  : std_logic;
 
 --Signals to carry data through ID stage
 signal s_ID_PC : std_logic_vector(31 downto 0);
@@ -366,6 +394,7 @@ signal s_EX_RegData0 : std_logic_vector(31 downto 0);
 signal s_EX_RegData1 : std_logic_vector(31 downto 0);
 signal s_EX_AddrRd : std_logic_vector(4 downto 0);
 signal s_EX_AddrRt : std_logic_vector(4 downto 0);
+signal s_EX_AddrRs : std_logic_vector(4 downto 0);
 signal s_EX_ALUOp : std_logic_vector(1 downto 0);
 signal s_EX_RegDst : std_logic;
 signal s_EX_InstOp : std_logic_vector(5 downto 0);
@@ -478,10 +507,11 @@ port map(iCLK        => iCLK,
        reset	 => iRST,
        read_out0  => s_RegOut1,
        read_out1  => s_RegOut2);
+s_NOT_zero_extend <= NOT s_zero_extend;
 
 imm_SignExtend: extenders
 port map(i_imm16 => s_ID_Inst(15 downto 0),
-	zero_sign_s => NOT(s_zero_extend),
+	zero_sign_s => s_NOT_zero_extend,
 	o_imm32 => s_Imm_SignExt);
 
 control_component: control_logic
@@ -538,6 +568,7 @@ ID_EX_Reg_inst: ID_EX_Reg
     i_imm => s_Imm_SignExt,
     i_AddrRd => s_ID_Inst(15 downto 11),
     i_AddrRt => s_ID_Inst(20 downto 16),
+    i_AddrRs => s_ID_Inst(25 downto 21),
     i_JAL => s_jal,
     i_halt => s_ID_Halt,
         i_Stall => s_IDEX_Stall,
@@ -555,21 +586,52 @@ ID_EX_Reg_inst: ID_EX_Reg
     o_imm => s_EX_imm,
     o_AddrRd => s_EX_AddrRd,
     o_AddrRt => s_EX_AddrRt,
+    o_AddrRs => s_EX_AddrRs,
     o_ALUOp => s_EX_ALUOp,
     o_RegDst => s_EX_RegDst,
     o_InstOp => s_EX_InstOp
 );
 --EX Stage
+forwarding_unit: forwarding_logic
+ port map(
+    i_MEM_RegWr => s_MEM_RegWr,
+    i_WB_RegWr => s_RegWr,
+    i_MEM_RegDst => s_MEM_WrAddr,
+    i_WB_RegDst => s_RegWrAddr,
+    i_Rs => s_EX_AddrRs,
+    i_Rt => s_EX_AddrRt,
+    o_Mux0_s => s_ALU_Mux_S_0,
+    o_Mux1_s => s_ALU_Mux_S_1
+);
 
 mux_ALU_Reg_Imm: mux2t1_N
 port map(i_S => s_EX_ALUSrc,
        i_D0 => s_EX_RegData1,
        i_D1 => s_EX_imm,
        o_O => s_Mux_ALU);
+
+ALU_Mux_0: mux3t1_N
+ port map(
+    i_S => s_ALU_Mux_S_0,
+    i_D0 => s_EX_RegData0,
+    i_D1 => s_RegWrData,
+    i_D2 => s_MEM_ALUOut,
+    o_O => s_ALU_Mux_O_0
+);
+
+ALU_Mux_1: mux3t1_N
+ port map(
+    i_S => s_ALU_Mux_S_1,
+    i_D0 => s_Mux_ALU,
+    i_D1 => s_RegWrData,
+    i_D2 => s_MEM_ALUOut,
+    o_O => s_ALU_Mux_O_1
+);
+
 alu_1: alu
     port map(
-        i_A        => s_EX_RegData0,
-        i_B        => s_Mux_ALU,
+        i_A        => s_ALU_Mux_O_0,
+        i_B        => s_ALU_Mux_O_1,
         i_ALUOp    => s_ALU_Operation,
         i_shamt    => s_EX_imm(10 downto 6),
         o_F        => oALUOut,
