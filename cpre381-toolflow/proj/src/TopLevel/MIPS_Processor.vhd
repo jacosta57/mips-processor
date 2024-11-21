@@ -168,6 +168,7 @@ component forwarding_logic is
     i_WB_RegDst    :   in std_logic_vector(4 downto 0);
     i_Rs            : in std_logic_vector(4 downto 0);
     i_Rt            : in std_logic_vector(4 downto 0);
+    i_ALUOp         : in std_logic_vector(1 downto 0);
     o_Mux0_s        : out std_logic_vector(1 downto 0);
     o_Mux1_s        : out std_logic_vector(1 downto 0));
 end component;
@@ -600,6 +601,7 @@ forwarding_unit: forwarding_logic
     i_WB_RegDst => s_RegWrAddr,
     i_Rs => s_EX_AddrRs,
     i_Rt => s_EX_AddrRt,
+    i_ALUOp => s_EX_ALUOp,
     o_Mux0_s => s_ALU_Mux_S_0,
     o_Mux1_s => s_ALU_Mux_S_1
 );

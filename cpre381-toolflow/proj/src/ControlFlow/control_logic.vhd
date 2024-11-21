@@ -91,6 +91,7 @@ begin
             when 8 | 9 =>  -- addi, addiu
                 r_control.ALUSrc   <= '1';
                 r_control.RegWrite <= '1';
+                r_control.ALUOp    <= "11";
 		
 	    when 10 => --slti
 		r_control.ALUSrc   <= '1';
