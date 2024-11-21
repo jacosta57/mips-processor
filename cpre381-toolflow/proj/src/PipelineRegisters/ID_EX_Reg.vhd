@@ -28,6 +28,7 @@ entity ID_EX_Reg is
        i_imm          : in std_logic_vector(N-1 downto 0);
        i_AddrRd          : in std_logic_vector(4 downto 0);
        i_AddrRt          : in std_logic_vector(4 downto 0);
+       i_AddrRs          : in std_logic_vector(4 downto 0);
        i_halt           : in std_logic;
       i_JAL : in std_logic;
       i_Flush         :in std_logic;
@@ -45,7 +46,7 @@ entity ID_EX_Reg is
        o_imm          : out std_logic_vector(N-1 downto 0);
        o_AddrRd          : out std_logic_vector(4 downto 0);
        o_AddrRt          : out std_logic_vector(4 downto 0);
-
+       o_AddrRs          : out std_logic_vector(4 downto 0);
        o_ALUOp          : out std_logic_vector(1 downto 0);
        o_RegDst          : out std_logic;
        o_InstOp          : out std_logic_vector(5 downto 0)
@@ -215,5 +216,16 @@ generic map(
     i_WE => s_we,
     i_D => i_AddrRt,
     o_Q => o_AddrRt
+);
+AddrRs_Reg: n_reg
+generic map(
+  N => 5
+)
+ port map(
+    i_CLK => i_CLK,
+    i_RST => s_RST,
+    i_WE => s_we,
+    i_D => i_AddrRs,
+    o_Q => o_AddrRs
 );
 end structural;

@@ -1,0 +1,59 @@
+
+#
+# CprE 381 toolflow Timing dump
+#
+
+FMax: 61.08mhz Clk Constraint: 20.00ns Slack: 3.63ns
+
+The path is given below
+
+ ===================================================================
+ From Node    : fetch_logic:fetch_component|s_PC[7]
+ To Node      : fetch_logic:fetch_component|s_PC[15]
+ Launch Clock : iCLK
+ Latch Clock  : iCLK
+ Data Arrival Path:
+ Total (ns)  Incr (ns)     Type  Element
+ ==========  ========= ==  ====  ===================================
+      0.000      0.000           launch edge time
+      3.079      3.079  R        clock network delay
+      3.311      0.232     uTco  fetch_logic:fetch_component|s_PC[7]
+      3.311      0.000 FF  CELL  fetch_component|s_PC[7]|q
+      5.171      1.860 FF    IC  s_IMemAddr[7]~5|datad
+      5.296      0.125 FF  CELL  s_IMemAddr[7]~5|combout
+      7.990      2.694 FF    IC  IMem|ram~49573|dataa
+      8.414      0.424 FF  CELL  IMem|ram~49573|combout
+      8.693      0.279 FF    IC  IMem|ram~49574|dataa
+      9.117      0.424 FF  CELL  IMem|ram~49574|combout
+     10.067      0.950 FF    IC  IMem|ram~49577|datac
+     10.348      0.281 FF  CELL  IMem|ram~49577|combout
+     10.617      0.269 FF    IC  IMem|ram~49580|datab
+     11.042      0.425 FF  CELL  IMem|ram~49580|combout
+     11.788      0.746 FF    IC  IMem|ram~49591|dataa
+     12.212      0.424 FF  CELL  IMem|ram~49591|combout
+     13.921      1.709 FF    IC  IMem|ram~49602|datad
+     14.071      0.150 FR  CELL  IMem|ram~49602|combout
+     14.274      0.203 RR    IC  IMem|ram~49645|datad
+     14.429      0.155 RR  CELL  IMem|ram~49645|combout
+     14.664      0.235 RR    IC  IMem|ram~49688|dataa
+     15.092      0.428 RF  CELL  IMem|ram~49688|combout
+     17.150      2.058 FF    IC  IMem|ram~49689|datad
+     17.275      0.125 FF  CELL  IMem|ram~49689|combout
+     17.501      0.226 FF    IC  IMem|ram~49860|datad
+     17.651      0.150 FR  CELL  IMem|ram~49860|combout
+     19.105      1.454 RR    IC  fetch_component|s_next_PC[15]~49|datad
+     19.260      0.155 RR  CELL  fetch_component|s_next_PC[15]~49|combout
+     19.260      0.000 RR    IC  fetch_component|s_PC[15]|d
+     19.347      0.087 RR  CELL  fetch_logic:fetch_component|s_PC[15]
+ Data Required Path:
+ Total (ns)  Incr (ns)     Type  Element
+ ==========  ========= ==  ====  ===================================
+     20.000     20.000           latch edge time
+     22.946      2.946  R        clock network delay
+     22.978      0.032           clock pessimism removed
+     22.958     -0.020           clock uncertainty
+     22.976      0.018     uTsu  fetch_logic:fetch_component|s_PC[15]
+ Data Arrival Time  :    19.347
+ Data Required Time :    22.976
+ Slack              :     3.629
+ ===================================================================
