@@ -52,7 +52,13 @@ begin
             elsif ((i_Rs = i_WB_RegDst) AND (i_WB_RegWr = '1') AND (i_WB_RegDst /= "00000")) then
                 o_Mux0_s <= "01";
             end if;
-
+        elsif (i_ALUOp = "00") then
+            if ((i_Rs = i_MEM_RegDst) AND (i_MEM_RegWr = '1') AND (i_MEM_RegDst /= "00000")) then
+                o_Mux0_s <= "10";
+            elsif ((i_Rs = i_WB_RegDst) AND (i_WB_RegWr = '1') AND (i_WB_RegDst /= "00000")) then
+                o_Mux0_s <= "01";
             end if;
-	end process;	
+
+        end if;
+    end process;	
 end Behavioral;
