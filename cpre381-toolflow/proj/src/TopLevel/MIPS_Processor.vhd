@@ -168,8 +168,20 @@ component forwarding_logic is
     i_WB_RegDst    :   in std_logic_vector(4 downto 0);
     i_Rs            : in std_logic_vector(4 downto 0);
     i_Rt            : in std_logic_vector(4 downto 0);
+    i_ALUOp         : in std_logic_vector(1 downto 0);
     o_Mux0_s        : out std_logic_vector(1 downto 0);
     o_Mux1_s        : out std_logic_vector(1 downto 0));
+end component;
+
+component sw_forwarding is
+  port(i_MEM_RegWr  :   in std_logic;
+    i_WB_RegWr  :in std_logic;
+    i_MEM_RegDst    :   in std_logic_vector(4 downto 0);
+    i_WB_RegDst    :   in std_logic_vector(4 downto 0);
+    i_Rt            : in std_logic_vector(4 downto 0);
+    i_ALUOp         : in std_logic_vector(1 downto 0);
+    o_Mux_s        : out std_logic_vector(1 downto 0));
+
 end component;
 
 component mux3t1_N is
@@ -401,7 +413,8 @@ signal s_EX_InstOp : std_logic_vector(5 downto 0);
 signal s_EX_JAL : std_logic;
 signal s_EX_Ovfl : std_logic;
 signal s_EX_RegWrAddr : std_logic_vector(4 downto 0);
-
+signal s_store_Mux_s  :std_logic_vector(1 downto 0);
+signal s_store_Mux_O  :std_logic_vector(31 downto 0);
 --Signals to carry data through MEM Stage
 signal s_MEM_Branch_En, s_MEM_ALU_Zero, s_Fetch_Branch_En : std_logic;
 signal s_MEM_Imm : std_logic_vector(31 downto 0);
@@ -600,6 +613,7 @@ forwarding_unit: forwarding_logic
     i_WB_RegDst => s_RegWrAddr,
     i_Rs => s_EX_AddrRs,
     i_Rt => s_EX_AddrRt,
+    i_ALUOp => s_EX_ALUOp,
     o_Mux0_s => s_ALU_Mux_S_0,
     o_Mux1_s => s_ALU_Mux_S_1
 );
@@ -662,6 +676,26 @@ port map(i_S => s_EX_RegDst,
        i_D1 => s_EX_AddrRd,
        o_O => s_EX_RegWrAddr);
 
+store_forward_mux: mux3t1_N
+ port map(
+    i_S => s_store_Mux_s,
+    i_D0 => s_EX_RegData1,
+    i_D1 => s_RegWrData,
+    i_D2 => s_MEM_ALUOut,
+    o_O => s_store_Mux_O
+);
+
+store_forwarding: sw_forwarding
+ port map(
+    i_MEM_RegWr => s_MEM_RegWr,
+    i_WB_RegWr => s_RegWr,
+    i_MEM_RegDst => s_MEM_WrAddr,
+    i_WB_RegDst => s_RegWrAddr,
+    i_Rt => s_EX_AddrRt,
+    i_ALUOp => s_EX_ALUOp,
+    o_Mux_s => s_store_Mux_s
+);
+
 EX_MEM_Reg_inst: EX_MEM_Reg
  port map(
     i_CLK => iCLK,
@@ -676,7 +710,7 @@ EX_MEM_Reg_inst: EX_MEM_Reg
     i_Ovfl => s_ALU_Ovfl,
     i_JAL => s_EX_JAL,
     i_ALUZero => s_ALU_Zero,
-    i_MemData => s_EX_RegData1,
+    i_MemData => s_store_Mux_O,
     i_ALUOut => s_ALU_Result,
         i_Stall => s_EXMEM_Stall,
         i_Flush => s_EXMEM_Flush,

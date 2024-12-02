@@ -67,10 +67,6 @@ begin
                 r_control.ALUOp    <= "10";
                 r_control.RegWrite <= '1';
                 
-                if to_integer(unsigned(i_funct)) = 0
-                then
-        r_control <= ('0', '0', '0', '0', '0', '0', '0', '0', "00", '0', '0', '0', '0');
-                end if;
 
                 -- Special case for jr
                 if to_integer(unsigned(i_funct)) = 8 then
@@ -95,6 +91,7 @@ begin
             when 8 | 9 =>  -- addi, addiu
                 r_control.ALUSrc   <= '1';
                 r_control.RegWrite <= '1';
+                r_control.ALUOp    <= "11";
 		
 	    when 10 => --slti
 		r_control.ALUSrc   <= '1';
