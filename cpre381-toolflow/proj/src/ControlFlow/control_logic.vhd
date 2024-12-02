@@ -19,6 +19,7 @@ entity control_logic is
         i_opcode    : in  std_logic_vector(5 downto 0);
         i_funct     : in  std_logic_vector(5 downto 0);
         i_reset    : in std_logic;
+        i_CLK       : in std_logic;
         o_RegDst    : out std_logic;
         o_Jump      : out std_logic;
         o_JumpReturn      : out std_logic;
@@ -53,9 +54,9 @@ architecture behavioral of control_logic is
 
     signal r_control : t_control_signals;
 begin
-    process(i_opcode, i_funct, r_control, i_reset)
+    process(i_opcode, i_funct, r_control, i_reset, i_CLK)
     begin
-        if i_reset = '1'
+        if ((i_reset = '1') AND (i_CLK = '0'))
         then
         r_control <= ('0', '0', '0', '0', '0', '0', '0', '0', "00", '0', '0', '0', '0');
     else

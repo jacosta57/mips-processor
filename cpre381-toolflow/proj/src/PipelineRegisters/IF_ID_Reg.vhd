@@ -33,12 +33,24 @@ architecture structural of IF_ID_Reg is
          o_Q          : out std_logic_vector(N-1 downto 0));   -- Data value output
   end component;  
 
-  signal s_we, s_RST : STD_LOGIC;
+  signal s_we, s_RST, count : STD_LOGIC := '0';
 begin
-  process(i_Stall, i_Flush)
-  begin
-  s_we <= '1' XOR i_Stall;
-  s_RST <= i_RST OR i_Flush;
+    process(i_Stall, i_Flush, i_RST, i_CLK)
+    begin
+        if((i_RST = '1') AND (i_CLK = '1') )
+        then
+            if (count = '0')
+            then
+                s_RST <= '1';
+                count <= '1';
+            else
+                s_we <= '1' XOR i_Stall;
+                s_RST <= '0';
+            end if;
+        else
+            s_we <= '1' XOR i_Stall;
+            s_RST <= i_Flush;
+        end if;
 end process;
  
   reg_PC: n_reg  
