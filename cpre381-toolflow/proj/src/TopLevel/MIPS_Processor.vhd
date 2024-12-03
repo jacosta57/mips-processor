@@ -326,12 +326,36 @@ component branch_logic is
       o_Branch_Take : out std_logic);
 end component;
 
+component branch_forwarding is
+  port(i_MEM_RegWr  :   in std_logic;
+    i_WB_RegWr  :in std_logic;
+    i_EX_RegWr  :in std_logic;
+    i_MEM_RegDst    :   in std_logic_vector(4 downto 0);
+    i_WB_RegDst    :   in std_logic_vector(4 downto 0);
+    i_EX_RegDst    :   in std_logic_vector(4 downto 0);
+    i_Rs            : in std_logic_vector(4 downto 0);
+    i_Rt            : in std_logic_vector(4 downto 0);
+    i_ALUOp         : in std_logic_vector(1 downto 0);
+    o_Mux0_s        : out std_logic_vector(1 downto 0);
+    o_Mux1_s        : out std_logic_vector(1 downto 0));
+end component;
+
+component mux4t1_N is
+  port(i_S          : in std_logic_vector(1 downto 0);
+       i_D0         : in std_logic_vector(N-1 downto 0);
+       i_D1         : in std_logic_vector(N-1 downto 0);
+       i_D2         : in std_logic_vector(N-1 downto 0);
+       i_D3         : in std_logic_vector(N-1 downto 0);
+       o_O          : out std_logic_vector(N-1 downto 0));
+end component;
+
 component hazard_detection is
   port(
       i_Branch      : in std_logic;
       i_Jump        : in std_logic;
       i_JumpReg     : in std_logic;
       i_Branch_Take : in std_logic;
+      i_CLK         : in std_logic;
       o_IF_Flush    : out std_logic;
       o_IF_ID_Flush : out std_logic);
 end component;
@@ -393,6 +417,10 @@ signal s_ID_Inst : std_logic_vector(31 downto 0);
 signal s_ID_Halt : std_logic;
 signal s_ID_DMemWr : std_logic;
 signal s_ID_RegWr : std_logic;
+signal s_Branch_Mux0 : std_logic_vector(1 downto 0);
+signal s_Branch_Mux1 : std_logic_vector(1 downto 0);
+signal s_Branch_Mux0_o : std_logic_vector(31 downto 0);
+signal s_Branch_Mux1_o : std_logic_vector(31 downto 0);
 
 --Signals to carry data through EX Stage
 signal s_EX_Imm : std_logic_vector(31 downto 0);
@@ -488,10 +516,10 @@ port map(
        i_branch_en 	=> s_Fetch_Branch_En,
        i_jump_en	=> s_Jump,
        i_jr_en 		=> s_Jump_Return,
-       i_branch_addr 	=> s_MEM_Imm,
-       i_jump_addr 	=> s_Inst(25 downto 0),
+       i_branch_addr 	=> x"0000" & s_ID_Inst(15 downto 0),
+       i_jump_addr 	=> s_ID_Inst(25 downto 0),
        i_jr_addr 	=> s_RegOut1,
-       i_pipelined_PC => s_MEM_PC,
+       i_pipelined_PC => s_ID_PC,
        o_PC 		=> s_NextInstAddr,
        o_next_inst_addr => s_PC_plus_4);
 
@@ -547,13 +575,46 @@ control_component: control_logic
         o_ALUSrc   => s_ALUSrc,
         o_RegWrite => s_ID_RegWr,
         o_Halt     => s_ID_halt);
+    
+branch_mux0: mux4t1_N
+ port map(
+    i_S => s_Branch_Mux0,
+    i_D0 => s_RegOut1,
+    i_D1 => s_WB_ALUResult,
+    i_D2 => s_MEM_ALUOut,
+    i_D3 => s_ALU_Result,
+    o_O => s_Branch_Mux0_o
+);
 
+branch_mux1: mux4t1_N
+ port map(
+    i_S => s_Branch_Mux1,
+    i_D0 => s_RegOut2,
+    i_D1 => s_WB_ALUResult,
+    i_D2 => s_MEM_ALUOut,
+    i_D3 => s_ALU_Result,
+    o_O => s_Branch_Mux1_o
+);
+branch_forwarding_inst: branch_forwarding
+ port map(
+    i_MEM_RegWr => s_MEM_RegWr,
+    i_WB_RegWr => s_RegWr,
+    i_EX_RegWr => s_EX_RegWr,
+    i_MEM_RegDst => s_MEM_WrAddr,
+    i_WB_RegDst => s_RegWrAddr,
+    i_EX_RegDst => s_EX_RegWrAddr,
+    i_Rs => s_ID_Inst(25 downto 21),
+    i_Rt => s_ID_Inst(20 downto 16),
+    i_ALUOp => s_ALUOp,
+    o_Mux0_s => s_Branch_Mux0,
+    o_Mux1_s => s_Branch_Mux1
+);
 branch_logic_inst: branch_logic
     port map(
         i_Branch    => s_Branch,
         i_Opcode    => s_ID_Inst(31 downto 26),
-        i_RegData1  => s_RegOut1,
-        i_RegData2  => s_RegOut2,
+        i_RegData1  => s_Branch_Mux0_o,
+        i_RegData2  => s_Branch_Mux1_o,
         o_Branch_Take => s_Fetch_Branch_En);
 
 hazard_detection_inst: hazard_detection
@@ -562,6 +623,7 @@ hazard_detection_inst: hazard_detection
         i_Jump        => s_Jump,
         i_JumpReg     => s_Jump_Return,
         i_Branch_Take => s_Fetch_Branch_En,
+        i_CLK         => iCLK,
         o_IF_Flush    => s_IF_Flush,
         o_IF_ID_Flush => s_IFID_Flush);        
 

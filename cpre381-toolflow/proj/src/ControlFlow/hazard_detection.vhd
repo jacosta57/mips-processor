@@ -19,14 +19,17 @@ entity hazard_detection is
         i_Jump        : in std_logic;
         i_JumpReg     : in std_logic;
         i_Branch_Take : in std_logic;
+        i_CLK           : in std_logic;
         o_IF_Flush    : out std_logic;
         o_IF_ID_Flush : out std_logic);
 end hazard_detection;
 
 architecture behavioral of hazard_detection is
 begin
-    process(i_Branch, i_Jump, i_JumpReg, i_Branch_Take)
+    process(i_CLK, i_Branch, i_Jump, i_JumpReg, i_Branch_Take)
     begin
+        if i_CLK = '1'
+        then
         -- Default: no flush needed
         o_IF_Flush <= '0';
         o_IF_ID_Flush <= '0';
@@ -46,5 +49,6 @@ begin
             o_IF_Flush <= '1';
             o_IF_ID_Flush <= '1';
         end if;
+    end if;
     end process;
 end behavioral;

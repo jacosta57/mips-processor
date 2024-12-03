@@ -34,10 +34,11 @@ architecture structural of IF_ID_Reg is
   end component;  
 
   signal s_we, s_RST, count : STD_LOGIC := '0';
+  signal s_PC, s_Inst : std_logic_vector(31 downto 0);
 begin
-    process(i_Stall, i_Flush, i_RST, i_CLK)
+    process(i_Stall, i_RST, i_CLK)
     begin
-        if((i_RST = '1') AND (i_CLK = '1') )
+        if((i_RST = '1')  )
         then
             if (count = '0')
             then
@@ -49,16 +50,27 @@ begin
             end if;
         else
             s_we <= '1' XOR i_Stall;
-            s_RST <= i_Flush;
         end if;
 end process;
  
+process(i_Flush, i_CLK, i_PC, i_Inst)
+begin
+    if(i_Flush = '1')
+    then
+        s_PC <= x"00000000";
+        s_Inst <= x"00000000";
+    else
+        s_PC <= i_PC;
+        s_Inst <= i_Inst;
+    end if;
+end process;
+
   reg_PC: n_reg  
    port map(
       i_CLK => i_CLK,
       i_RST => s_RST,
       i_WE => s_we,
-      i_D => i_PC,
+      i_D => s_PC,
       o_Q => o_PC
   );
 
@@ -68,7 +80,7 @@ end process;
       i_CLK => i_CLK,
       i_RST => s_RST,
       i_WE => s_we,
-      i_D => i_Inst,
+      i_D => s_Inst,
       o_Q => o_Inst
   );
 end structural;

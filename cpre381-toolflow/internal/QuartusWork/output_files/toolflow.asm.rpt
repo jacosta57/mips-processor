@@ -1,5 +1,5 @@
 Assembler report for toolflow
-Tue Nov 19 19:12:56 2024
+Mon Dec  2 18:37:34 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Tue Nov 19 19:12:56 2024 ;
+; Assembler Status      ; Successful - Mon Dec  2 18:37:34 2024 ;
 ; Revision Name         ; toolflow                              ;
 ; Top-level Entity Name ; MIPS_Processor                        ;
 ; Family                ; Cyclone IV E                          ;
@@ -93,8 +93,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------+-----------------------+
 ; Option         ; Setting               ;
 +----------------+-----------------------+
-; JTAG usercode  ; 0x01E450C8            ;
-; Checksum       ; 0x01E450C8            ;
+; JTAG usercode  ; 0x01DDAEEB            ;
+; Checksum       ; 0x01DDAEEB            ;
 +----------------+-----------------------+
 
 
@@ -118,7 +118,7 @@ Info: Running Quartus Prime Assembler
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Tue Nov 19 19:12:52 2024
+    Info: Processing started: Mon Dec  2 18:37:30 2024
 Info: Command: quartus_asm --read_settings_files=on --write_settings_files=off toolflow -c toolflow
 Info (125069): Default assignment values were changed in the current version of the Quartus Prime software -- changes to default assignments values are contained in file /home/nakota/intelFPGA_lite/23.1std/quartus/linux64/assignment_defaults.qdf
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -126,8 +126,8 @@ Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 3 warnings
     Info: Peak virtual memory: 494 megabytes
-    Info: Processing ended: Tue Nov 19 19:12:56 2024
+    Info: Processing ended: Mon Dec  2 18:37:34 2024
     Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Total CPU time (on all processors): 00:00:04
 
 

@@ -2,7 +2,7 @@
 -- Jayson Acosta
 --
 --
--- bracnh_logic.vhd
+-- branch_logic.vhd
 -------------------------------------------------------------------------
 -- DESCRIPTION: Implementation of the branch logic, compares register 
 -- values in the ID stage to determine when to take a branch.

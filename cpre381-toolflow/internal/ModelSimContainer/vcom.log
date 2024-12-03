@@ -1,6 +1,6 @@
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-Start time: 12:23:29 on Dec 02,2024
-vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd internal/testpy/tb.vhd proj/src/add_sub.vhd proj/src/MIPS_types.vhd proj/src/FetchLogic/fetch_logic.vhd proj/src/PipelineRegisters/IF_ID_Reg.vhd proj/src/PipelineRegisters/MEM_Reg.vhd proj/src/PipelineRegisters/WB_Reg.vhd proj/src/PipelineRegisters/ID_EX_Reg.vhd proj/src/PipelineRegisters/EX_MEM_Reg.vhd proj/src/PipelineRegisters/EX_Reg.vhd proj/src/PipelineRegisters/MEM_WB_reg.vhd proj/src/ALU/alu_control.vhd proj/src/ALU/alu.vhd proj/src/Provided Components/xorg2.vhd proj/src/Provided Components/andg2.vhd proj/src/Provided Components/dffg.vhd proj/src/Provided Components/adder.vhd proj/src/Provided Components/invg.vhd proj/src/Provided Components/org2.vhd proj/src/RegFile/reg_file.vhd proj/src/RegFile/n_reg.vhd proj/src/Basic Components/n-adder.vhd proj/src/Basic Components/Shifter.vhd proj/src/Basic Components/extenders.vhd proj/src/Basic Components/OnesComp.vhd proj/src/Basic Components/Decoder_32.vhd proj/src/Muxes/mux2t1_N.vhd proj/src/Muxes/32t1_mux_32.vhd proj/src/Muxes/mux2t1_5.vhd proj/src/Muxes/mux3t1_N.vhd proj/src/Muxes/mux2t1.vhd proj/src/TopLevel/MIPS_Processor.vhd proj/src/TopLevel/mem.vhd proj/src/ControlFlow/forwarding_logic.vhd proj/src/ControlFlow/sw_forwarding.vhd proj/src/ControlFlow/hazard_detection.vhd proj/src/ControlFlow/branch_logiv.vhd proj/src/ControlFlow/control_logic.vhd 
+Start time: 18:40:10 on Dec 02,2024
+vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd internal/testpy/tb.vhd proj/src/add_sub.vhd proj/src/MIPS_types.vhd proj/src/FetchLogic/fetch_logic.vhd proj/src/PipelineRegisters/IF_ID_Reg.vhd proj/src/PipelineRegisters/MEM_Reg.vhd proj/src/PipelineRegisters/WB_Reg.vhd proj/src/PipelineRegisters/ID_EX_Reg.vhd proj/src/PipelineRegisters/EX_MEM_Reg.vhd proj/src/PipelineRegisters/EX_Reg.vhd proj/src/PipelineRegisters/MEM_WB_reg.vhd proj/src/ALU/alu_control.vhd proj/src/ALU/alu.vhd proj/src/Provided Components/xorg2.vhd proj/src/Provided Components/andg2.vhd proj/src/Provided Components/dffg.vhd proj/src/Provided Components/adder.vhd proj/src/Provided Components/invg.vhd proj/src/Provided Components/org2.vhd proj/src/RegFile/reg_file.vhd proj/src/RegFile/n_reg.vhd proj/src/Basic Components/n-adder.vhd proj/src/Basic Components/Shifter.vhd proj/src/Basic Components/extenders.vhd proj/src/Basic Components/OnesComp.vhd proj/src/Basic Components/Decoder_32.vhd proj/src/Muxes/mux2t1_N.vhd proj/src/Muxes/32t1_mux_32.vhd proj/src/Muxes/mux2t1_5.vhd proj/src/Muxes/mux4t1_N.vhd proj/src/Muxes/mux3t1_N.vhd proj/src/Muxes/mux2t1.vhd proj/src/TopLevel/MIPS_Processor.vhd proj/src/TopLevel/mem.vhd proj/src/ControlFlow/forwarding_logic.vhd proj/src/ControlFlow/sw_forwarding.vhd proj/src/ControlFlow/branch_logic.vhd proj/src/ControlFlow/hazard_detection.vhd proj/src/ControlFlow/branch_forwarding.vhd proj/src/ControlFlow/control_logic.vhd 
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
@@ -70,6 +70,8 @@ vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd interna
 -- Compiling architecture Behavioral of mux_32
 -- Compiling entity mux2t1_5
 -- Compiling architecture Behavioral of mux2t1_5
+-- Compiling entity mux4t1_N
+-- Compiling architecture Behavioral of mux4t1_N
 -- Compiling entity mux3t1_N
 -- Compiling architecture Behavioral of mux3t1_N
 -- Compiling entity mux2t1
@@ -82,11 +84,13 @@ vcom -2008 -work internal/ModelSimContainer/work proj/src/MIPS_types.vhd interna
 -- Compiling architecture Behavioral of forwarding_logic
 -- Compiling entity sw_forwarding
 -- Compiling architecture Behavioral of sw_forwarding
--- Compiling entity hazard_detection
--- Compiling architecture behavioral of hazard_detection
 -- Compiling entity branch_logic
 -- Compiling architecture behavioral of branch_logic
+-- Compiling entity hazard_detection
+-- Compiling architecture behavioral of hazard_detection
+-- Compiling entity branch_forwarding
+-- Compiling architecture Behavioral of branch_forwarding
 -- Compiling entity control_logic
 -- Compiling architecture behavioral of control_logic
-End time: 12:23:29 on Dec 02,2024, Elapsed time: 0:00:00
+End time: 18:40:10 on Dec 02,2024, Elapsed time: 0:00:00
 Errors: 0, Warnings: 0

@@ -54,12 +54,13 @@ architecture behavioral of control_logic is
 
     signal r_control : t_control_signals;
 begin
-    process(i_opcode, i_funct, r_control, i_reset, i_CLK)
+    process(i_opcode, i_funct, r_control, i_CLK)
     begin
         if ((i_reset = '1') AND (i_CLK = '0'))
         then
         r_control <= ('0', '0', '0', '0', '0', '0', '0', '0', "00", '0', '0', '0', '0');
-    else
+    elsif i_CLK = '1'
+        then
         -- Default values
         r_control <= ('0', '0', '0', '0', '0', '0', '0', '0', "00", '0', '0', '0', '0');
         case to_integer(unsigned(i_opcode)) is

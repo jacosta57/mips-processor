@@ -3,57 +3,75 @@
 # CprE 381 toolflow Timing dump
 #
 
-FMax: 61.08mhz Clk Constraint: 20.00ns Slack: 3.63ns
+FMax: 35.66mhz Clk Constraint: 20.00ns Slack: -8.05ns
 
 The path is given below
 
  ===================================================================
- From Node    : fetch_logic:fetch_component|s_PC[7]
- To Node      : fetch_logic:fetch_component|s_PC[15]
+ From Node    : MEM_WB_Reg:MEM_WB_Reg_inst|n_reg:RegDst_Reg|dffg:\G_n_reg:2:REGI|s_Q
+ To Node      : hazard_detection:hazard_detection_inst|o_IF_ID_Flush
  Launch Clock : iCLK
- Latch Clock  : iCLK
+ Latch Clock  : iCLK (INVERTED)
  Data Arrival Path:
  Total (ns)  Incr (ns)     Type  Element
  ==========  ========= ==  ====  ===================================
       0.000      0.000           launch edge time
-      3.079      3.079  R        clock network delay
-      3.311      0.232     uTco  fetch_logic:fetch_component|s_PC[7]
-      3.311      0.000 FF  CELL  fetch_component|s_PC[7]|q
-      5.171      1.860 FF    IC  s_IMemAddr[7]~5|datad
-      5.296      0.125 FF  CELL  s_IMemAddr[7]~5|combout
-      7.990      2.694 FF    IC  IMem|ram~49573|dataa
-      8.414      0.424 FF  CELL  IMem|ram~49573|combout
-      8.693      0.279 FF    IC  IMem|ram~49574|dataa
-      9.117      0.424 FF  CELL  IMem|ram~49574|combout
-     10.067      0.950 FF    IC  IMem|ram~49577|datac
-     10.348      0.281 FF  CELL  IMem|ram~49577|combout
-     10.617      0.269 FF    IC  IMem|ram~49580|datab
-     11.042      0.425 FF  CELL  IMem|ram~49580|combout
-     11.788      0.746 FF    IC  IMem|ram~49591|dataa
-     12.212      0.424 FF  CELL  IMem|ram~49591|combout
-     13.921      1.709 FF    IC  IMem|ram~49602|datad
-     14.071      0.150 FR  CELL  IMem|ram~49602|combout
-     14.274      0.203 RR    IC  IMem|ram~49645|datad
-     14.429      0.155 RR  CELL  IMem|ram~49645|combout
-     14.664      0.235 RR    IC  IMem|ram~49688|dataa
-     15.092      0.428 RF  CELL  IMem|ram~49688|combout
-     17.150      2.058 FF    IC  IMem|ram~49689|datad
-     17.275      0.125 FF  CELL  IMem|ram~49689|combout
-     17.501      0.226 FF    IC  IMem|ram~49860|datad
-     17.651      0.150 FR  CELL  IMem|ram~49860|combout
-     19.105      1.454 RR    IC  fetch_component|s_next_PC[15]~49|datad
-     19.260      0.155 RR  CELL  fetch_component|s_next_PC[15]~49|combout
-     19.260      0.000 RR    IC  fetch_component|s_PC[15]|d
-     19.347      0.087 RR  CELL  fetch_logic:fetch_component|s_PC[15]
+      3.081      3.081  R        clock network delay
+      3.313      0.232     uTco  MEM_WB_Reg:MEM_WB_Reg_inst|n_reg:RegDst_Reg|dffg:\G_n_reg:2:REGI|s_Q
+      3.313      0.000 FF  CELL  MEM_WB_Reg_inst|RegDst_Reg|\G_n_reg:2:REGI|s_Q|q
+      4.035      0.722 FF    IC  forwarding_unit|Equal8~0|datad
+      4.185      0.150 FR  CELL  forwarding_unit|Equal8~0|combout
+      4.860      0.675 RR    IC  forwarding_unit|process_0~4|datab
+      5.224      0.364 RF  CELL  forwarding_unit|process_0~4|combout
+      5.492      0.268 FF    IC  forwarding_unit|process_0~7|datab
+      5.848      0.356 FF  CELL  forwarding_unit|process_0~7|combout
+      7.691      1.843 FF    IC  ALU_Mux_1|Mux0~5|dataa
+      8.120      0.429 FR  CELL  ALU_Mux_1|Mux0~5|combout
+      9.218      1.098 RR    IC  ALU_Mux_1|Mux9~0|dataa
+      9.655      0.437 RF  CELL  ALU_Mux_1|Mux9~0|combout
+      9.883      0.228 FF    IC  ALU_Mux_1|Mux9~1|datad
+     10.033      0.150 FR  CELL  ALU_Mux_1|Mux9~1|combout
+     11.066      1.033 RR    IC  alu_1|ShiftRight0~37|datac
+     11.353      0.287 RR  CELL  alu_1|ShiftRight0~37|combout
+     11.590      0.237 RR    IC  alu_1|ShiftRight0~39|dataa
+     12.007      0.417 RR  CELL  alu_1|ShiftRight0~39|combout
+     12.215      0.208 RR    IC  alu_1|ShiftRight0~40|datac
+     12.502      0.287 RR  CELL  alu_1|ShiftRight0~40|combout
+     13.128      0.626 RR    IC  alu_1|Mux34~8|datac
+     13.415      0.287 RR  CELL  alu_1|Mux34~8|combout
+     13.618      0.203 RR    IC  alu_1|Mux34~9|datad
+     13.773      0.155 RR  CELL  alu_1|Mux34~9|combout
+     15.074      1.301 RR    IC  alu_1|Mux34~10|datac
+     15.361      0.287 RR  CELL  alu_1|Mux34~10|combout
+     15.564      0.203 RR    IC  alu_1|Mux34~11|datad
+     15.719      0.155 RR  CELL  alu_1|Mux34~11|combout
+     15.924      0.205 RR    IC  alu_1|Mux34~14|datad
+     16.079      0.155 RR  CELL  alu_1|Mux34~14|combout
+     16.283      0.204 RR    IC  alu_1|Mux34~18|datad
+     16.438      0.155 RR  CELL  alu_1|Mux34~18|combout
+     16.673      0.235 RR    IC  branch_mux0|Mux31~1|datad
+     16.828      0.155 RR  CELL  branch_mux0|Mux31~1|combout
+     17.480      0.652 RR    IC  branch_logic_inst|Equal0~0|datab
+     17.912      0.432 RF  CELL  branch_logic_inst|Equal0~0|combout
+     18.188      0.276 FF    IC  branch_logic_inst|Equal0~4|dataa
+     18.541      0.353 FF  CELL  branch_logic_inst|Equal0~4|combout
+     18.769      0.228 FF    IC  branch_logic_inst|Equal0~10|datad
+     18.894      0.125 FF  CELL  branch_logic_inst|Equal0~10|combout
+     19.127      0.233 FF    IC  branch_logic_inst|o_Branch_Take~1|datac
+     19.408      0.281 FF  CELL  branch_logic_inst|o_Branch_Take~1|combout
+     19.693      0.285 FF    IC  fetch_component|s_next_PC[22]~27|datad
+     19.818      0.125 FF  CELL  fetch_component|s_next_PC[22]~27|combout
+     20.068      0.250 FF    IC  hazard_detection_inst|o_IF_ID_Flush|datad
+     20.193      0.125 FF  CELL  hazard_detection:hazard_detection_inst|o_IF_ID_Flush
  Data Required Path:
  Total (ns)  Incr (ns)     Type  Element
  ==========  ========= ==  ====  ===================================
-     20.000     20.000           latch edge time
-     22.946      2.946  R        clock network delay
-     22.978      0.032           clock pessimism removed
-     22.958     -0.020           clock uncertainty
-     22.976      0.018     uTsu  fetch_logic:fetch_component|s_PC[15]
- Data Arrival Time  :    19.347
- Data Required Time :    22.976
- Slack              :     3.629
+     10.000     10.000           latch edge time
+     13.167      3.167  F        clock network delay
+     13.199      0.032           clock pessimism removed
+     13.179     -0.020           clock uncertainty
+     12.147     -1.032     uTsu  hazard_detection:hazard_detection_inst|o_IF_ID_Flush
+ Data Arrival Time  :    20.193
+ Data Required Time :    12.147
+ Slack              :    -8.046 (VIOLATED)
  ===================================================================
