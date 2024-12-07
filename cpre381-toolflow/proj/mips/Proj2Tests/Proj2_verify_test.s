@@ -17,8 +17,9 @@ main:
     xor  $7, $1, $2        # XOR
     
     # Memory Operations
-    sw   $1, 0($0)         # Store
-    lw   $8, 0($0)         # Load
+    lui  $11 0x1001	    # Set up base address
+    sw   $11, 0($11)         # Store
+    lw   $8, 0($11)         # Load
     
     # Shifts
     sll  $9, $1, 2         # Shift left

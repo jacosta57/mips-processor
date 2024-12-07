@@ -17,7 +17,8 @@ main:
     add  $4, $3, $0        # Forward from WB stage
     
     # Test 3: Load Use Forwarding
-    addi $5, $0, 100       # Address setup
+    lui $5 0x1001	    # Set up base address
+    addi $5, $5, 0         # Address setup
     sw   $1, 0($5)         # Store a value
     lw   $6, 0($5)         # Load the value
     nop
