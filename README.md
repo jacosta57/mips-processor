@@ -1,93 +1,203 @@
-# cpre381-proj1
+# MIPS Processor
 
+A 32-bit MIPS processor implemented in VHDL across three designs of
+increasing sophistication: a single-cycle baseline, a software-scheduled
+5-stage pipeline (no hazard hardware), and a hardware-scheduled 5-stage
+pipeline with forwarding and hazard detection. Synthesized for the
+Altera DE2 FPGA (Cyclone IV E) and validated against the MARS reference
+simulator.
 
+## Results
 
-## Getting started
+| Design                          | Max Frequency | Notes                                         |
+|---------------------------------|---------------|-----------------------------------------------|
+| Single-cycle                    | 26.76 MHz     | Critical path: register file → ALU → DMEM → register file (i.e. `lw`) |
+| Software-scheduled pipeline     | Not measured  | Intermediate design; superseded by hardware-scheduled in this repo |
+| Hardware-scheduled pipeline     | 35.66 MHz     | Critical path: MEM/WB → forwarding → ALU mux → ALU → branch logic → fetch → hazard detection |
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+Pipelining improved the clock speed by roughly 33% (26.76 → 35.66 MHz)
+on top of the throughput gain from instruction-level parallelism. The
+Part 1 number is from the original team report (Quartus 21.1 Standard);
+the Part 3 number is from a fresh re-synthesis on Quartus 25.1 Lite
+Edition.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Supported instructions: `add`, `addi`, `addiu`, `addu`, `and`, `andi`,
+`lui`, `lw`, `nor`, `xor`, `xori`, `or`, `ori`, `slt`, `slti`, `sll`,
+`srl`, `sra`, `sw`, `sub`, `subu`, `beq`, `bne`, `j`, `jal`, `jr`, plus
+the `repl.qb` DSP instruction.
 
-## Add your files
+## Test results
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+The hardware-scheduled pipeline was re-validated against the MARS
+reference simulator on Questa 2025.2:
 
+- **Unit tests:** 103 / 105 passing (per-instruction tests across all 12 instruction categories)
+- **Team-written hazard/forwarding stress tests:** 3 / 3 passing
+- **Project test programs (`Proj2_base_test`, `Proj2_bubblesort`):** 2 / 2 passing
+- **Course-provided sanity programs:** 3 / 5 passing
+
+See [Limitations](#limitations) below for the specific failing tests
+and their root cause.
+
+## What's in this repo
+
+| Path                                       | Purpose                                              |
+|--------------------------------------------|------------------------------------------------------|
+| `cpre381-toolflow/proj/src/`               | All VHDL source for the processor                    |
+| `cpre381-toolflow/proj/src/MIPS_types.vhd` | Type declarations and global constants               |
+| `cpre381-toolflow/proj/src/TopLevel/`      | Top-level processor and memory entities              |
+| `cpre381-toolflow/proj/src/ALU/`           | ALU and ALU control logic                            |
+| `cpre381-toolflow/proj/src/ControlFlow/`   | Control unit, branch logic, forwarding, hazard detection |
+| `cpre381-toolflow/proj/src/PipelineRegisters/` | IF/ID, ID/EX, EX/MEM, MEM/WB pipeline registers  |
+| `cpre381-toolflow/proj/src/RegFile/`       | 32×32 register file                                  |
+| `cpre381-toolflow/proj/src/Muxes/`         | Parameterized 2:1, 3:1, 4:1, and 32:1 muxes          |
+| `cpre381-toolflow/proj/src/FetchLogic/`    | PC update logic                                      |
+| `cpre381-toolflow/proj/src/Basic Components/` | Barrel shifter, decoder, n-bit adder, ones-complement, extenders |
+| `cpre381-toolflow/proj/src/Provided Components/` | Course-staff-provided gate-level primitives    |
+| `cpre381-toolflow/proj/test/`              | VHDL testbenches for individual components           |
+| `cpre381-toolflow/proj/mips/`              | MIPS assembly test programs                          |
+| `cpre381-toolflow/381_tf.sh`               | Toolflow runner (test, synth, submit modes)          |
+| `cpre381-toolflow/config.ini`              | Toolchain path configuration                         |
+| `docs/`                                    | Assignment descriptions and control signal tables    |
+
+The repo's current state is the final **hardware-scheduled pipeline**.
+Earlier designs (single-cycle, software-scheduled pipeline) are
+preserved in git history — see commit log for the progression.
+
+## Project structure
+
+The project was built in three parts over a semester, each building on
+the last:
+
+**Part 1 — Single-cycle processor.** Classic textbook single-cycle MIPS
+datapath. One instruction completes per cycle; clock period is bounded
+by the slowest instruction path (`lw`, which traverses register file →
+ALU → data memory → register file). Components include a 32-bit barrel
+shifter built from cascaded 2:1 muxes (supporting `srl`, `sra`, and
+`sll` with a single right-shift core plus input/output reversal), a
+PLA-style control unit, and an ALU controller that decodes both opcode
+and funct fields.
+
+**Part 2 — Software-scheduled pipeline.** Same datapath as Part 1, but
+split into IF/ID/EX/MEM/WB stages by inserting pipeline registers
+between each. No hazard detection, no forwarding, no stalling — the
+assembler is responsible for inserting NOPs or reordering instructions
+to avoid hazards. The BubbleSort program from Part 1 was hand-scheduled
+to run correctly here. Branch condition logic was moved to the ID stage
+to keep the branch penalty low.
+
+**Part 3 — Hardware-scheduled pipeline.** Adds an EX-stage forwarding
+unit (EX→EX and MEM→EX bypass for ALU operations), a separate
+ID-stage forwarding unit for branch operands, a store-data forwarding
+unit, hazard detection for control-flow flushes, and modifies the
+register file to forward writes to concurrent reads.
+
+## Test programs
+
+The `proj/mips/` directory is organized by phase:
+
+- `GivenTests/` — Course-provided sanity programs (addi sequences, simple branches, Fibonacci, etc.)
+- `UnitTests/` — ~105 small programs covering each instruction (add, and, branch, jump, load, nor, or, shift, slt, store, sub, xor)
+- `Proj1Tests/` — Single-cycle test suite (base test, control-flow test with call depth ≥ 5, BubbleSort)
+- `Proj2Tests/` — Hazard/forwarding stress tests for the pipelined designs
+- `Proj2_bubblesort.s`, `Proj2_base_test.s` — Top-level Part 2/3 tests
+
+## Running the project
+
+The processor uses the CprE 381 toolflow, which wraps a simulator
+(ModelSim or Questa) and Quartus Prime for synthesis. **You'll need
+both tools installed locally to run this.** See
+`cpre381-toolflow/cpre381-toolflow.pdf` for the full toolflow manual.
+
+### Setup
+
+Edit `cpre381-toolflow/config.ini` to add a configuration section
+pointing at your local Quartus and simulator installations. For
+example, on Linux with Quartus Lite 25.1:
+
+```ini
+[MyConfig]
+modelsim_paths = ["/home/user/altera_lite/25.1std/questa_fse/bin"]
+quartus_paths  = ["/home/user/altera_lite/25.1std/quartus/linux64"]
+needs_license  = "false"
 ```
-cd existing_repo
-git remote add origin https://git.ece.iastate.edu/jayson04/cpre381-proj1.git
-git branch -M main
-git push -uf origin main
+
+You may also need to set environment variables for Quartus and Questa:
+
+```bash
+export LD_LIBRARY_PATH=/path/to/quartus/linux64:$LD_LIBRARY_PATH
+export QUARTUS_ROOTDIR_OVERRIDE=/path/to/quartus
+export SALT_LICENSE_SERVER=/path/to/questa-license.dat
 ```
 
-## Integrate with your tools
+### Simulate a test program
 
-- [ ] [Set up project integrations](https://git.ece.iastate.edu/jayson04/cpre381-proj1/-/settings/integrations)
+From the `cpre381-toolflow/` directory:
 
-## Collaborate with your team
+```bash
+./381_tf.sh test -c MyConfig proj/mips/GivenTests/addiseq.s
+```
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+This compiles the VHDL, assembles the MIPS program in MARS, runs both
+MARS and the Questa simulation of the processor, and diffs the register
+and memory writes.
 
-## Test and Deploy
+To run every test program in a directory:
 
-Use the built-in continuous integration in GitLab.
+```bash
+./381_tf.sh test -c MyConfig -s proj/mips/UnitTests/*/*.s
+```
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+### Synthesize for the DE2 FPGA
 
-***
+```bash
+./381_tf.sh synth -c MyConfig
+```
 
-# Editing this README
+Synthesis takes a few minutes on a modern machine. The timing report and
+critical path summary land in `cpre381-toolflow/temp/timing.txt`.
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+## Limitations
 
-## Suggestions for a good README
+A handful of tests fail. The failures are documented in the original
+commit history (e.g. *"Only 2 unit tests have errors in execution.
+bne_1 and jr_2"* and *"Fixed bugs. Added Forwarding for Store
+instructions. All tests pass except Jumps and Branches"*), so these are
+known gaps from the original course submission rather than regressions
+in the toolchain.
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+**Failing tests:**
 
-## Name
-Choose a self-explaining name for your project.
+- `proj/mips/UnitTests/branch/bne_1.s` — bne where both operands are equal (branch should not be taken) after back-to-back loads
+- `proj/mips/UnitTests/jump/jr_2.s` — jr where the target register was written by the immediately preceding instruction
+- `proj/mips/GivenTests/fibonacci.s` — exercises the same patterns
+- `proj/mips/GivenTests/grendel.s` — exercises the same patterns
+- `proj/mips/Proj1Tests/Proj1_base_test.s` — load followed immediately by use
+- `proj/mips/Proj1Tests/Proj1_bubblesort.s` — exercises the same patterns
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+**Root cause:** the ID-stage branch forwarding unit
+(`proj/src/ControlFlow/branch_forwarding.vhd`) is guarded by
+`ALUOp = "01"` (branch encoding), so it never activates for jump-register
+instructions. Additionally, when a branch reads a register that was
+just produced by a load still in EX, the forwarded value is the load's
+address calculation rather than the loaded data, which would require a
+stall the unit doesn't produce.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+A fix would extend `branch_forwarding` to (a) also activate for `jr`,
+and (b) detect the load-then-branch case and assert a stall rather than
+forward stale data. This is left unfixed to preserve the original
+project's submitted state.
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+## Acknowledgments
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+Course project for CprE 381 — Computer Organization and Assembly Level
+Programming at Iowa State University. Completed by a team of 2;
+contributions are visible in the commit history.
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+The toolflow framework and project structure were provided by the
+course staff. Parts of the assignment descriptions were originally
+created by Dr. Joe Zambreno.
 
 ## License
-For open source projects, say how it is licensed.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+MIT
